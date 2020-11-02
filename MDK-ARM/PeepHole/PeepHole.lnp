@@ -19,6 +19,10 @@
 "peephole\stm32f0xx_hal_flash_ex.o"
 "peephole\stm32f0xx_hal_exti.o"
 "peephole\system_stm32f0xx.o"
+"peephole\ili9341.o"
+"peephole\ov7670.o"
+"peephole\sccb.o"
+"peephole\peephole.o"
 --library_type=microlib --strict --scatter "PeepHole\PeepHole.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

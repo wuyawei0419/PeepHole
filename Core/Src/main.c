@@ -22,7 +22,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "peephole.h"
+#include "ili9341.h"
+#include "ov7670.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -84,13 +86,67 @@ int main(void)
 
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
-
+	PeepHole_Init();
+	PeepHole_OV_2_LCD_Control(DISABLE);
+	PeepHole_LCD_WR_Control(DISABLE);		
+	PeepHole_Power_Control(DISABLE);
+	HAL_Delay(1000);
+	PeepHole_Power_Control(ENABLE);
+	HAL_Delay(1000);
+		if(OV7670_Init() == OV7670_True)
+		{
+			ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
+			HAL_Delay(500);		
+		}
+		else
+		{
+			ILI9341_ClearScreen(ILI9341_COLOR_RED);
+			HAL_Delay(500);					
+		}	
+	ILI9341_Board_Init();
+	ILI9341_APP_Init();
+	HAL_Delay(100);
+	ILI9341_ClearScreen(ILI9341_COLOR_BRED);
+	HAL_Delay(500);
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		
+		
+
+		ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
+		HAL_Delay(500);		
+		ILI9341_ClearScreen(ILI9341_COLOR_BLUE);
+		HAL_Delay(500);				
+		ILI9341_ClearScreen(ILI9341_COLOR_BLACK);
+		HAL_Delay(500);			
+		ILI9341_ClearScreen(ILI9341_COLOR_WHITE);
+		HAL_Delay(500);				
+		
+		
+//		PeepHole_Power_Control(DISABLE);
+//		HAL_Delay(500);
+//		PeepHole_Power_Control(ENABLE);
+//		HAL_Delay(500);
+//		ILI9341_Board_Init();
+//		ILI9341_APP_Init();
+//		HAL_Delay(100);		
+		
+		
+		if(OV7670_Init() == OV7670_True)
+		{
+			ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
+			HAL_Delay(500);		
+		}
+		else
+		{
+			ILI9341_ClearScreen(ILI9341_COLOR_RED);
+			HAL_Delay(500);					
+		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

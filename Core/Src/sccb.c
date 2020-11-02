@@ -173,16 +173,28 @@ uint8_t SCCB_RD_Byte(void)
   * @brief  延时
   * @param  None
   * @retval None
+	*	@note		IIC延时函数，实际测试约为6us
   */
 static void SCCB_Delay(void)
 {
+	uint8_t i;
 	
+	for(i=0;i<30;i++);	
 }
 
 
 static void SCCB_SDA_IN(void)
 {
+	GPIO_InitTypeDef GPIO_Initure;
 	
+	SCCB_SDA_GPIO_CLK_ENABLE();
+	
+	/*初始化SCCB_SDA引脚*/
+	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
+	GPIO_Initure.Mode = GPIO_MODE_INPUT;				/*输入*/
+	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
+	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
+	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);		
 }
 
 
