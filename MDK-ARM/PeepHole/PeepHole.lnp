@@ -1,0 +1,25 @@
+--cpu Cortex-M0
+"peephole\startup_stm32f030x6.o"
+"peephole\main.o"
+"peephole\stm32f0xx_it.o"
+"peephole\stm32f0xx_hal_msp.o"
+"peephole\stm32f0xx_hal_tim.o"
+"peephole\stm32f0xx_hal_tim_ex.o"
+"peephole\stm32f0xx_hal_rcc.o"
+"peephole\stm32f0xx_hal_rcc_ex.o"
+"peephole\stm32f0xx_hal.o"
+"peephole\stm32f0xx_hal_i2c.o"
+"peephole\stm32f0xx_hal_i2c_ex.o"
+"peephole\stm32f0xx_hal_gpio.o"
+"peephole\stm32f0xx_hal_dma.o"
+"peephole\stm32f0xx_hal_cortex.o"
+"peephole\stm32f0xx_hal_pwr.o"
+"peephole\stm32f0xx_hal_pwr_ex.o"
+"peephole\stm32f0xx_hal_flash.o"
+"peephole\stm32f0xx_hal_flash_ex.o"
+"peephole\stm32f0xx_hal_exti.o"
+"peephole\system_stm32f0xx.o"
+--library_type=microlib --strict --scatter "PeepHole\PeepHole.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "PeepHole.map" -o PeepHole\PeepHole.axf
