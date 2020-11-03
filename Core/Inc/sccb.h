@@ -29,7 +29,7 @@
 
 typedef enum
 {
-	SCCB_False = 0,
+	SCCB_False = 0U,
 	SCCB_True = !SCCB_False
 } SCCB_BoolTypeDef;
 

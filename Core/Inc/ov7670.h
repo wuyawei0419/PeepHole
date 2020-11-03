@@ -18,7 +18,7 @@
 
 typedef enum
 {
-	OV7670_False = 0,
+	OV7670_False = 0U,
 	OV7670_True = !OV7670_False
 } OV7670_BoolTypeDef;
 
