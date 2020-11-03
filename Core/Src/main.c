@@ -103,7 +103,7 @@ int main(void)
 	{
 		//ILI9341_ClearScreen(ILI9341_COLOR_RED);
 		HAL_Delay(500);				
-		PeepHole_Power_Control(DISABLE);		
+		//PeepHole_Power_Control(DISABLE);		
 	}	
 	ILI9341_Board_Init();
 	ILI9341_APP_Init();
@@ -139,16 +139,16 @@ int main(void)
 //		HAL_Delay(100);		
 		
 		
-		if(OV7670_Init() == OV7670_True)
-		{
-			ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
-			HAL_Delay(500);		
-		}
-		else
-		{
-			ILI9341_ClearScreen(ILI9341_COLOR_RED);
-			HAL_Delay(500);					
-		}
+//		if(OV7670_Init() == OV7670_True)
+//		{
+//			ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
+//			HAL_Delay(500);		
+//		}
+//		else
+//		{
+//			ILI9341_ClearScreen(ILI9341_COLOR_RED);
+//			HAL_Delay(500);					
+//		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -42,13 +42,13 @@ void PeepHole_Init(void)
 	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
 	HAL_GPIO_Init(POWER_GPIO_PORT, &GPIO_Initure);
 	
-	GPIO_Initure.Pin = OV_VSYNC_GPIO_PIN;				/*pin号*/
-	GPIO_Initure.Mode = GPIO_MODE_IT_RISING;		/*外部中断*/
-	GPIO_Initure.Pull = GPIO_NOPULL;						/*无上下拉*/
-	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
-	HAL_GPIO_Init(OV_VSYNC_GPIO_PORT, &GPIO_Initure);
-  HAL_NVIC_SetPriority(OV_VSYNC_GPIO_IRQn, 2, 0);
-  HAL_NVIC_EnableIRQ(OV_VSYNC_GPIO_IRQn);
+//	GPIO_Initure.Pin = OV_VSYNC_GPIO_PIN;				/*pin号*/
+//	GPIO_Initure.Mode = GPIO_MODE_IT_RISING;		/*外部中断*/
+//	GPIO_Initure.Pull = GPIO_NOPULL;						/*无上下拉*/
+//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
+//	HAL_GPIO_Init(OV_VSYNC_GPIO_PORT, &GPIO_Initure);
+//  HAL_NVIC_SetPriority(OV_VSYNC_GPIO_IRQn, 2, 0);
+//  HAL_NVIC_EnableIRQ(OV_VSYNC_GPIO_IRQn);
 }
 
 
