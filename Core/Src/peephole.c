@@ -8,6 +8,7 @@
   */
 	
 #include "peephole.h"
+#include "ili9341.h"
 
 
 /**
@@ -43,13 +44,15 @@ void PeepHole_Init(void)
 	HAL_GPIO_Init(POWER_GPIO_PORT, &GPIO_Initure);
 	
 	GPIO_Initure.Pin = OV_VSYNC_GPIO_PIN;				/*pin号*/
-	GPIO_Initure.Mode = GPIO_MODE_IT_RISING;		/*外部中断*/
-	GPIO_Initure.Pull = GPIO_NOPULL;						/*无上下拉*/
+	GPIO_Initure.Mode = GPIO_MODE_IT_FALLING;		/*外部中断*/
+	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
 	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
 	HAL_GPIO_Init(OV_VSYNC_GPIO_PORT, &GPIO_Initure);
-  HAL_NVIC_SetPriority(OV_VSYNC_GPIO_IRQn, 2, 0);
-  HAL_NVIC_EnableIRQ(OV_VSYNC_GPIO_IRQn);
 	
+  HAL_NVIC_SetPriority(OV_VSYNC_GPIO_IRQn, 2, 0);
+  HAL_NVIC_DisableIRQ(OV_VSYNC_GPIO_IRQn);
+
+	PeepHole_EXTI_Control(DISABLE);
 	PeepHole_OV_2_LCD_Control(DISABLE);
 	PeepHole_LCD_WR_Control(DISABLE);
 	PeepHole_Power_Control(DISABLE);
@@ -150,13 +153,46 @@ void PeepHole_Power_Control(FunctionalState State)
 
 
 /**
+  * @brief  开启或关闭中断
+  * @param  State
+	*		#DISABLE
+	*		#ENABLE
+  * @retval None
+  */
+void PeepHole_EXTI_Control(FunctionalState State)
+{
+	if(State == DISABLE)
+	{
+		HAL_NVIC_DisableIRQ(OV_VSYNC_GPIO_IRQn);
+	}
+	else
+	{
+		HAL_NVIC_EnableIRQ(OV_VSYNC_GPIO_IRQn);
+	}
+}
+
+
+/**
   * @brief  OV摄像头帧同步信号中断回调
   * @param  None
   * @retval None
   */
 void PeepHole_OV_VSYNC_EXTI_Callback(void)
 {
+	PeepHole_EXTI_Control(DISABLE);
 	
+	SN74LV125_OE_GPIO_WRITE(GPIO_PIN_SET);
+	SN74LV245_OE_GPIO_WRITE(GPIO_PIN_SET);
+	
+	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
+	
+	ILI9341_RS_WRITE(GPIO_PIN_SET);
+	ILI9341_WR_WRITE(GPIO_PIN_RESET);
+	
+	SN74LV125_OE_GPIO_WRITE(GPIO_PIN_RESET);
+	SN74LV245_OE_GPIO_WRITE(GPIO_PIN_RESET);
+	
+	PeepHole_EXTI_Control(ENABLE);
 }
 
 

@@ -458,3 +458,156 @@ void ILI9341_ClearScreen(uint16_t Color)
 		}
 	}
 }
+
+
+
+/**
+  * @brief  ÇåÆÁ
+	*	@param	Color£ºÌî³äµÄÑÕÉ«
+  * @retval None
+  */
+void ILI9341_test(uint16_t Color)
+{
+	uint8_t v_h, v_l;
+	uint16_t i, j;
+	
+	v_h = Color >> 8;
+	v_l = Color;
+	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}
+	
+	v_h = ILI9341_COLOR_GREEN >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_GREEN;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+	
+	v_h = ILI9341_COLOR_WHITE >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_WHITE;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+	v_h = ILI9341_COLOR_BLACK >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_BLACK;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+	v_h = ILI9341_COLOR_WHITE >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_WHITE;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+	v_h = ILI9341_COLOR_BLACK >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_BLACK;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+	
+	
+	v_h = ILI9341_COLOR_WHITE >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_WHITE;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+	v_h = ILI9341_COLOR_BLACK >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_BLACK;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+
+	v_h = ILI9341_COLOR_WHITE >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_WHITE;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+	v_h = ILI9341_COLOR_BLACK >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_BLACK;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+		while(1)
+		{
+			
+			
+			
+			
+	v_h = ILI9341_COLOR_WHITE >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_WHITE;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}	
+
+	v_h = ILI9341_COLOR_BLACK >> 8;
+	v_l = (uint8_t)ILI9341_COLOR_BLACK;
+
+	for(i = 0; i < ILI9341_WIDTH; i++)
+	{
+		for(j = 0; j < ILI9341_HEIGHT; j++)
+		{
+			ILI9341_WR_Data8(v_h, v_l);
+		}
+	}				
+		}
+}

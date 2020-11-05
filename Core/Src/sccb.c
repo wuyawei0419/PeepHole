@@ -179,37 +179,42 @@ static void SCCB_Delay(void)
 {
 	volatile uint8_t i;
 	
-	for(i=0;i<50;i++);	
+//	for(i=0;i<50;i++);
+	for(i=0;i<100;i++);	
 }
 
 
 static void SCCB_SDA_IN(void)
 {
-	GPIO_InitTypeDef GPIO_Initure;
-	
-	SCCB_SDA_GPIO_CLK_ENABLE();
-	
-	/*初始化SCCB_SDA引脚*/
-	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
-	GPIO_Initure.Mode = GPIO_MODE_INPUT;				/*输入*/
-	GPIO_Initure.Pull = GPIO_NOPULL;						/*上拉*/
-	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
-	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);		
+//	GPIO_InitTypeDef GPIO_Initure;
+//	
+//	SCCB_SDA_GPIO_CLK_ENABLE();
+//	
+//	/*初始化SCCB_SDA引脚*/
+//	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
+//	GPIO_Initure.Mode = GPIO_MODE_INPUT;				/*输入*/
+//	GPIO_Initure.Pull = GPIO_NOPULL;						/*上拉*/
+//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
+//	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);		
+//	SCCB_SDA_GPIO_WRITE(GPIO_PIN_SET);
+	SCCB_SDA_GPIO_PORT->MODER&=~(3<<(10*2));SCCB_SDA_GPIO_PORT->MODER|=0<<10*2;
 }
 
 
 static void SCCB_SDA_OUT(void)
 {
-	GPIO_InitTypeDef GPIO_Initure;
-	
-	SCCB_SDA_GPIO_CLK_ENABLE();
-	
-	/*初始化SCCB_SDA引脚*/
-	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
-	GPIO_Initure.Mode = GPIO_MODE_OUTPUT_OD;		/*开漏输出*/
-	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
-	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
-	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);	
+//	GPIO_InitTypeDef GPIO_Initure;
+//	
+//	SCCB_SDA_GPIO_CLK_ENABLE();
+//	
+//	/*初始化SCCB_SDA引脚*/
+//	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
+//	GPIO_Initure.Mode = GPIO_MODE_OUTPUT_OD;		/*开漏输出*/
+//	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
+//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
+//	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);	
+//	SCCB_SDA_GPIO_WRITE(GPIO_PIN_SET);
+	SCCB_SDA_GPIO_PORT->MODER&=~(3<<(10*2));SCCB_SDA_GPIO_PORT->MODER|=1<<10*2;
 }
 
 

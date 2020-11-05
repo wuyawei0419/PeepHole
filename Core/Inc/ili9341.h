@@ -184,6 +184,7 @@ HAL_GPIO_WritePin(ILI9341_DB15_GPIO_PORT, ILI9341_DB15_GPIO_PIN, (GPIO_PinState)
 
 void ILI9341_Board_Init(void);
 void ILI9341_APP_Init(void);
+void ILI9341_Address_Set(uint16_t X1, uint16_t Y1, uint16_t X2, uint16_t Y2);
 void ILI9341_ClearScreen(uint16_t Color);
 
 

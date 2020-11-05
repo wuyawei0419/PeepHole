@@ -56,6 +56,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 OV7670_BoolTypeDef resutl = OV7670_False;
+extern void ILI9341_test(uint16_t Color);
 /* USER CODE END 0 */
 
 /**
@@ -95,40 +96,53 @@ int main(void)
 	ILI9341_APP_Init();
 	HAL_Delay(200);
 	
+	if(OV7670_Init() == OV7670_True)
+	{
+		ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
+	}
+	else
+	{
+		ILI9341_ClearScreen(ILI9341_COLOR_RED);
+	}
+	HAL_Delay(1000);
+//	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
+//	PeepHole_EXTI_Control(ENABLE);
+	
+	ILI9341_test(ILI9341_COLOR_YELLOW);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		ILI9341_ClearScreen(ILI9341_COLOR_WHITE);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_BLACK);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_BLUE);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_BRED);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_GRED);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_GBLUE);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_RED);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_MAGENTA);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_CYAN);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_BROWN);
-		HAL_Delay(200);		
-		ILI9341_ClearScreen(ILI9341_COLOR_BRRED);
-		HAL_Delay(200);
-		ILI9341_ClearScreen(ILI9341_COLOR_GRAY);
-		HAL_Delay(200);				
+//		ILI9341_ClearScreen(ILI9341_COLOR_WHITE);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_BLACK);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_BLUE);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_BRED);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_GRED);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_GBLUE);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_RED);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_MAGENTA);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_CYAN);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_BROWN);
+//		HAL_Delay(200);		
+//		ILI9341_ClearScreen(ILI9341_COLOR_BRRED);
+//		HAL_Delay(200);
+//		ILI9341_ClearScreen(ILI9341_COLOR_GRAY);
+//		HAL_Delay(200);				
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -174,6 +188,21 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+/**
+  * @brief  EXTI line detection callback.
+  * @param  GPIO_Pin Specifies the port pin connected to corresponding EXTI line.
+  * @retval None
+  */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == OV_VSYNC_GPIO_PIN)
+	{
+		PeepHole_OV_VSYNC_EXTI_Callback();
+	}
+}
+
 
 /* USER CODE END 4 */
 

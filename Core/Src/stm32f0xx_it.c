@@ -141,5 +141,60 @@ void SysTick_Handler(void)
 
 /* USER CODE BEGIN 1 */
 
+/**
+  * @brief This function handles System tick timer.
+  */
+void EXTI4_15_IRQHandler(void)
+{
+	if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_4) == GPIO_PIN_4)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_5) == GPIO_PIN_5)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_6) == GPIO_PIN_6)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_7) == GPIO_PIN_7)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_8) == GPIO_PIN_8)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_9) == GPIO_PIN_9)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_9);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_10) == GPIO_PIN_10)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_11) == GPIO_PIN_11)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_12) == GPIO_PIN_12)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_12);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_13) == GPIO_PIN_13)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_14) == GPIO_PIN_14)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
+	}
+	else if(__HAL_GPIO_EXTI_GET_FLAG(GPIO_PIN_15) == GPIO_PIN_15)
+	{
+		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
+	}	
+}
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

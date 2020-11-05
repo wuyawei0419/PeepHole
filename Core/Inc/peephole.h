@@ -91,6 +91,7 @@ void PeepHole_Stop(void);
 void PeepHole_LCD_WR_Control(FunctionalState State);
 void PeepHole_OV_2_LCD_Control(FunctionalState State);
 void PeepHole_Power_Control(FunctionalState State);
+void PeepHole_EXTI_Control(FunctionalState State);
 void PeepHole_OV_VSYNC_EXTI_Callback(void);
 
 #endif
