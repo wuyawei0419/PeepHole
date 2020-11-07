@@ -88,27 +88,49 @@ int main(void)
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
 	PeepHole_Init();
-	HAL_Delay(1000);
-	PeepHole_Power_Control(ENABLE);
-	HAL_Delay(1000);
+//	HAL_Delay(1000);
+//	PeepHole_Power_Control(ENABLE);
+//	HAL_Delay(1000);
 	ILI9341_Board_Init();
 	HAL_Delay(200);
 	ILI9341_APP_Init();
 	HAL_Delay(200);
+	ILI9341_ClearScreen(ILI9341_COLOR_BLACK);
+//	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
+//	OV7670_Init();
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);	
+//	HAL_Delay(6000);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(DISABLE);HAL_Delay(200);
+//	PeepHole_Power_Control(ENABLE);HAL_Delay(200);	
 	
-	if(OV7670_Init() == OV7670_True)
-	{
-		ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
-	}
-	else
-	{
-		ILI9341_ClearScreen(ILI9341_COLOR_RED);
-	}
-	HAL_Delay(1000);
+	PeepHole_EXTI_Control(ENABLE);
+	
+//	if(OV7670_Init() == OV7670_True)
+//	{
+//		ILI9341_ClearScreen(ILI9341_COLOR_YELLOW);
+//	}
+//	else
+//	{
+//		ILI9341_ClearScreen(ILI9341_COLOR_RED);
+//	}
+	
 //	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
 //	PeepHole_EXTI_Control(ENABLE);
 	
-	ILI9341_test(ILI9341_COLOR_YELLOW);
+//	ILI9341_test(ILI9341_COLOR_YELLOW);
   /* USER CODE END 2 */
 
   /* Infinite loop */

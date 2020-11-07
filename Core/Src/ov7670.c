@@ -380,16 +380,16 @@ void Set_Cmos7670Reg(void)
   */
 OV7670_BoolTypeDef OV7670_Init(void)
 {
-	uint16_t i;
+//	uint16_t i;
 	
 	SCCB_Init();
 	
-	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
-	{
-		return OV7670_False;
-	}
-	
-	OV7670_DelayMs(10);
+//	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
+//	{
+//		return OV7670_False;
+//	}
+//	
+//	OV7670_DelayMs(10);
 	
 //	for(i = 0; i < sizeof(OV7670_REG_INIT_TABLE)/sizeof(OV7670_REG_INIT_TABLE[0]); i++)
 //	{
@@ -397,7 +397,7 @@ OV7670_BoolTypeDef OV7670_Init(void)
 //			return OV7670_False;
 //	}
 	
-	Set_Cmos7670Reg();
+//	Set_Cmos7670Reg();
 	
 	return OV7670_True;
 }
