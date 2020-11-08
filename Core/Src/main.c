@@ -92,15 +92,22 @@ int main(void)
 	ILI9341_Board_Init();
 	HAL_Delay(200);
 	
+	ILI9341_APP_Init();
+	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
+	
 	Tft_Init();
+	TftClear(ILI9341_COLOR_YELLOW);
 	HAL_Delay(200);
-	TftClear(0x001F);
+	
+	
 	HAL_Delay(200);
 	OV7670_Init();
 	HAL_Delay(1000);
 	
 
 	ILI9341_DataPort_IN();
+	PeepHole_OV_2_LCD_Control(ENABLE);
+	PeepHole_LCD_WR_Control(ENABLE);	
 	PeepHole_EXTI_Control(ENABLE);
 	
 
