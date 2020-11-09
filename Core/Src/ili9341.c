@@ -537,102 +537,227 @@ void Tft_Init(void)
 	HAL_Delay(1000);
 
 
-		TftWrite(0x00e5, 0x8000);	
-		TftWrite(0x0000, 0x0001);	
-		TftWrite(0x0001, 0x0100);
-		TftWrite(0x0002, 0x0700);
-	#if AM==000       
-		TftWrite(0x0003,0x1000);
-	#elif AM==001        
-		TftWrite(0x0003,0x1008);      
-	#elif AM==010  
-	    TftWrite(0x0003,0x1010);        
-	#elif AM==011
-		TftWrite(0x0003,0x1018);
-	#elif AM==100  
-		TftWrite(0x0003,0x1020);      
-	#elif AM==101  
-		TftWrite(0x0003,0x1028);      
-	#elif AM==110  
-		TftWrite(0x0003,0x1030);      
-	#elif AM==111  
-		TftWrite(0x0003,0x1038);
-	#endif
-		TftWrite(0x0004, 0x0000);
-		TftWrite(0x0008, 0x0202);	
-		TftWrite(0x0009, 0x0000);	
-		TftWrite(0x000A, 0x0000);
-		TftWrite(0x000C, 0x0000);	
-		TftWrite(0x000D, 0x0000);	
-		TftWrite(0x000F, 0x0000);	
-		TftWrite(0x0010, 0x0000);	
-		TftWrite(0x0011, 0x0007);	
-		TftWrite(0x0012, 0x0000);	
-		TftWrite(0x0013, 0x0000);	
-		HAL_Delay(1000);
-		TftWrite(0x0010, 0x17B0);	
-		TftWrite(0x0011, 0x0007);	
-		HAL_Delay(1000);
-		TftWrite(0x0012, 0x013A);	
-		HAL_Delay(1000);
-		TftWrite(0x0013, 0x1A00);	
-		TftWrite(0x0029, 0x000c);		
-		HAL_Delay(1000);
-		TftWrite(0x0030, 0x0000);	
-		TftWrite(0x0031, 0x0505);	
-		TftWrite(0x0032, 0x0004);	
-		TftWrite(0x0035, 0x0006);	
-		TftWrite(0x0036, 0x0707);	
-		TftWrite(0x0037, 0x0105);	
-		TftWrite(0x0038, 0x0002);	
-		TftWrite(0x0039, 0x0707);	
-		TftWrite(0x003C, 0x0704);	
-		TftWrite(0x003D, 0x0807);	
-		TftWrite(0x0050, 0x0000);
-		TftWrite(0x0051, 0x00EF);
-		TftWrite(0x0052, 0x0000);
-		TftWrite(0x0053, 0x013F);
-		TftWrite(0x0060, 0x2700);
-		TftWrite(0x0061, 0x0001);
-		TftWrite(0x006A, 0x0000);
-	#if AM==000         
-		TftWrite(0x0020,0x00ef);
-		TftWrite(0x0021,0x013f);      
-	#elif AM==001
-		TftWrite(0x0020,0x00ef);
-		TftWrite(0x0021,0x013f);      
-	#elif AM==010
-		TftWrite(0x0020,0x0000);
-		TftWrite(0x0021,0x013f);      
-	#elif AM==011
-		TftWrite(0x0020,0x0000);
-		TftWrite(0x0021,0x013f);       
-	#elif AM==100
-		TftWrite(0x0020,0x00ef);
-		TftWrite(0x0021,0x0000);      
-	#elif AM==101  
-		TftWrite(0x0020,0x00ef);
-		TftWrite(0x0021,0x0000);      
-	#elif AM==110
-		TftWrite(0x0020,0x0000);
-		TftWrite(0x0021,0x0000);      
-	#elif AM==111
-		TftWrite(0x0020,0x0000);
-		TftWrite(0x0021,0x0000);         
-	#endif  	
-		TftWrite(0x0080, 0x0000);	
-		TftWrite(0x0081, 0x0000);
-		TftWrite(0x0082, 0x0000);
-		TftWrite(0x0083, 0x0000);
-		TftWrite(0x0084, 0x0000);	
-		TftWrite(0x0085, 0x0000);
-		TftWrite(0x0090, 0x0010);	
-		TftWrite(0x0092, 0x0000);
-		TftWrite(0x0093, 0x0003);
-		TftWrite(0x0095, 0x0110);
-		TftWrite(0x0097, 0x0000);	
-		TftWrite(0x0098, 0x0000);	
-		TftWrite(0x0007, 0x0173);	
+//		TftWrite(0x00e5, 0x8000);	
+//		TftWrite(0x0000, 0x0001);	
+//		TftWrite(0x0001, 0x0100);
+//		TftWrite(0x0002, 0x0700);
+//	#if AM==000       
+//		TftWrite(0x0003,0x1000);
+//	#elif AM==001        
+//		TftWrite(0x0003,0x1008);      
+//	#elif AM==010  
+//	    TftWrite(0x0003,0x1010);        
+//	#elif AM==011
+//		TftWrite(0x0003,0x1018);
+//	#elif AM==100  
+//		TftWrite(0x0003,0x1020);      
+//	#elif AM==101  
+//		TftWrite(0x0003,0x1028);      
+//	#elif AM==110  
+//		TftWrite(0x0003,0x1030);      
+//	#elif AM==111  
+//		TftWrite(0x0003,0x1038);
+//	#endif
+//		TftWrite(0x0004, 0x0000);
+//		TftWrite(0x0008, 0x0202);	
+//		TftWrite(0x0009, 0x0000);	
+//		TftWrite(0x000A, 0x0000);
+//		TftWrite(0x000C, 0x0000);	
+//		TftWrite(0x000D, 0x0000);	
+//		TftWrite(0x000F, 0x0000);	
+//		TftWrite(0x0010, 0x0000);	
+//		TftWrite(0x0011, 0x0007);	
+//		TftWrite(0x0012, 0x0000);	
+//		TftWrite(0x0013, 0x0000);	
+//		HAL_Delay(1000);
+//		TftWrite(0x0010, 0x17B0);	
+//		TftWrite(0x0011, 0x0007);	
+//		HAL_Delay(1000);
+//		TftWrite(0x0012, 0x013A);	
+//		HAL_Delay(1000);
+//		TftWrite(0x0013, 0x1A00);	
+//		TftWrite(0x0029, 0x000c);		
+//		HAL_Delay(1000);
+//		TftWrite(0x0030, 0x0000);	
+//		TftWrite(0x0031, 0x0505);	
+//		TftWrite(0x0032, 0x0004);	
+//		TftWrite(0x0035, 0x0006);	
+//		TftWrite(0x0036, 0x0707);	
+//		TftWrite(0x0037, 0x0105);	
+//		TftWrite(0x0038, 0x0002);	
+//		TftWrite(0x0039, 0x0707);	
+//		TftWrite(0x003C, 0x0704);	
+//		TftWrite(0x003D, 0x0807);	
+//		TftWrite(0x0050, 0x0000);
+//		TftWrite(0x0051, 0x00EF);
+//		TftWrite(0x0052, 0x0000);
+//		TftWrite(0x0053, 0x013F);
+//		TftWrite(0x0060, 0x2700);
+//		TftWrite(0x0061, 0x0001);
+//		TftWrite(0x006A, 0x0000);
+//	#if AM==000         
+//		TftWrite(0x0020,0x00ef);
+//		TftWrite(0x0021,0x013f);      
+//	#elif AM==001
+//		TftWrite(0x0020,0x00ef);
+//		TftWrite(0x0021,0x013f);      
+//	#elif AM==010
+//		TftWrite(0x0020,0x0000);
+//		TftWrite(0x0021,0x013f);      
+//	#elif AM==011
+//		TftWrite(0x0020,0x0000);
+//		TftWrite(0x0021,0x013f);       
+//	#elif AM==100
+//		TftWrite(0x0020,0x00ef);
+//		TftWrite(0x0021,0x0000);      
+//	#elif AM==101  
+//		TftWrite(0x0020,0x00ef);
+//		TftWrite(0x0021,0x0000);      
+//	#elif AM==110
+//		TftWrite(0x0020,0x0000);
+//		TftWrite(0x0021,0x0000);      
+//	#elif AM==111
+//		TftWrite(0x0020,0x0000);
+//		TftWrite(0x0021,0x0000);         
+//	#endif  	
+//		TftWrite(0x0080, 0x0000);	
+//		TftWrite(0x0081, 0x0000);
+//		TftWrite(0x0082, 0x0000);
+//		TftWrite(0x0083, 0x0000);
+//		TftWrite(0x0084, 0x0000);	
+//		TftWrite(0x0085, 0x0000);
+//		TftWrite(0x0090, 0x0010);	
+//		TftWrite(0x0092, 0x0000);
+//		TftWrite(0x0093, 0x0003);
+//		TftWrite(0x0095, 0x0110);
+//		TftWrite(0x0097, 0x0000);	
+//		TftWrite(0x0098, 0x0000);	
+//		TftWrite(0x0007, 0x0173);	
+
+
+		 TftWrite(0x00E3,0x3008);        
+	     TftWrite(0x00E7,0x0012);
+	     TftWrite(0x00Ef,0x1231); 	// Set the internal timing;    
+         TftWrite(0x00,0x0001);
+         TftWrite(0x01, 0x0000); // set SS and SM bit
+         TftWrite(0x02, 0x0700); // set 1 line inversion
+        // TftWrite(0x03, 0x10B0); // set GRAM write direction and BGR=1.
+#if   AM==000       
+	     TftWrite(0x0003,0x1000);//屏幕旋转控制 TFM=0,TRI=0,SWAP=1,16 bits system interface  swap RGB to BRG，此处ORG和HWM 为0
+#elif AM==001        
+	     TftWrite(0x0003,0x1008);      
+#elif AM==010  
+	     TftWrite(0x0003,0x1010);        
+#elif AM==011
+	     TftWrite(0x0003,0x1018);
+#elif AM==100  
+	     TftWrite(0x0003,0x1020);      
+#elif AM==101  
+	     TftWrite(0x0003,0x1028);      
+#elif AM==110  
+	     TftWrite(0x0003,0x1030);      
+#elif AM==111  
+	     TftWrite(0x0003,0x1038);
+#endif    
+         TftWrite(0x04, 0x0000); // Resize register
+         TftWrite(0x08, 0x0404); // set the back porch and front porch
+         TftWrite(0x09, 0x0000); // set non-display area refresh cycle ISC[3:0]
+         TftWrite(0x0A, 0x0000); // FMARK function
+        // TftWrite(0x0C, 0x0000); // RGB interface setting
+        // TftWrite(0x0D, 0x0000); // Frame marker Position
+        // TftWrite(0x0F, 0x0000); // RGB interface polarity
+//Power On sequence //
+         TftWrite(0x10, 0x0080); // SAP, BT[3:0], AP, DSTB, SLP, STB
+         TftWrite(0x11, 0x0007); // DC1[2:0], DC0[2:0], VC[2:0]
+         TftWrite(0x12, 0x0000); // VREG1OUT voltage
+         TftWrite(0x13, 0x0000); // VDV[4:0] for VCOM amplitude
+	 TftWrite(0x07, 0x0001); // 
+		 
+         HAL_Delay(2000); // Dis-charge capacitor power voltage
+         
+         TftWrite(0x10, 0x1590); // SAP, BT[3:0], AP, DSTB, SLP, STB
+         TftWrite(0x11, 0x0227); // DC1[2:0], DC0[2:0], VC[2:0]
+         HAL_Delay(1000); // Delay 50ms
+        
+         TftWrite(0x12, 0x001e); // Internal reference voltage= Vci;
+         HAL_Delay(1000); // Delay 50ms
+         TftWrite(0x13, 0x1500); // Set VDV[4:0] for VCOM amplitude
+         TftWrite(0x29, 0x0028); // Set VCM[5:0] for VCOMH
+         TftWrite(0x2B, 0x000f); // Set Frame Rate
+         HAL_Delay(500); // Delay 50ms
+         
+#if   AM==000         
+	     TftWrite(0x0020,0x00ef);//GRAM水平起始位置
+	     TftWrite(0x0021,0x013f);      
+#elif AM==001
+	     TftWrite(0x0020,0x00ef);
+	     TftWrite(0x0021,0x013f);      
+#elif AM==010
+	     TftWrite(0x0020,0x0000);
+	     TftWrite(0x0021,0x013f);      
+#elif AM==011
+	     TftWrite(0x0020,0x0000);
+	     TftWrite(0x0021,0x013f);       
+#elif AM==100
+	     TftWrite(0x0020,0x00ef);
+	     TftWrite(0x0021,0x0000);      
+#elif AM==101  
+	     TftWrite(0x0020,0x00ef);
+	     TftWrite(0x0021,0x0000);      
+#elif AM==110
+	     TftWrite(0x0020,0x0000);
+	     TftWrite(0x0021,0x0000);      
+#elif AM==111
+	     TftWrite(0x0020,0x0000);
+	     TftWrite(0x0021,0x0000);         
+#endif  
+// ----------- Adjust the Gamma Curve ----------//
+		TftWrite(0x0030,0x0007);
+		TftWrite(0x0031,0x0707);
+		TftWrite(0x0032,0x0107);
+		TftWrite(0x0035,0x0206);
+		TftWrite(0x0036,0x0406);
+		TftWrite(0x0037,0x0101);
+		TftWrite(0x0038,0x0101);
+		TftWrite(0x0039,0x0207);
+		TftWrite(0x003C,0x0504);
+		TftWrite(0x003D,0x0806);
+	
+
+		 
+//------------------ Set GRAM area ---------------//
+         TftWrite(0x0050, 0x0000); // Horizontal GRAM Start Address
+         TftWrite(0x0051, 0x00EF); // Horizontal GRAM End Address
+         TftWrite(0x0052, 0x0000); // Vertical GRAM Start Address
+         TftWrite(0x0053, 0x013F); // Vertical GRAM Start Address
+         TftWrite(0x0060, 0x2700); // Gate Scan Line
+         TftWrite(0x0061, 0x0001); // NDL,VLE, REV
+         TftWrite(0x006A, 0x0000); // set scrolling line
+//-------------- Partial Display Control ---------//
+         TftWrite(0x80, 0x0000);
+         TftWrite(0x81, 0x0000);
+         TftWrite(0x82, 0x0000);
+         TftWrite(0x83, 0x0000);
+         TftWrite(0x84, 0x0000);
+         TftWrite(0x85, 0x0000);
+//-------------- Panel Control -------------------//
+         TftWrite(0x90, 0x0010);
+         TftWrite(0x92, 0x0600);
+         TftWrite(0x93, 0x0003);
+         TftWrite(0x95, 0x0110);
+         TftWrite(0x97, 0x0000);
+         TftWrite(0x98, 0x0000);
+		 
+         TftWrite(0x07, 0x0173); // 262K color and display ON   0133
+
+
+
+
+
+
+
+
+
 		HAL_Delay(1000);
 }
 

@@ -159,18 +159,19 @@ typedef enum
 
 #else
 
-//#define ILI9341_8_BIT_DATA_WRITE(data)	do{ GPIOB->ODR &= 0x00FF; GPIOB->ODR |= (((uint16_t)data) << 8);} while(0)
+#define ILI9341_8_BIT_DATA_WRITE(data)	do{ GPIOA->ODR &= 0xFF00; GPIOA->ODR |= (((uint16_t)data) << 0);} while(0)
 
-#define ILI9341_8_BIT_DATA_WRITE(data)	do{ \
-HAL_GPIO_WritePin(ILI9341_DB8_GPIO_PORT, ILI9341_DB8_GPIO_PIN, (GPIO_PinState)(data&0x01));\
-HAL_GPIO_WritePin(ILI9341_DB9_GPIO_PORT, ILI9341_DB9_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 1)));\
-HAL_GPIO_WritePin(ILI9341_DB10_GPIO_PORT, ILI9341_DB10_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 2)));\
-HAL_GPIO_WritePin(ILI9341_DB11_GPIO_PORT, ILI9341_DB11_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 3)));\
-HAL_GPIO_WritePin(ILI9341_DB12_GPIO_PORT, ILI9341_DB12_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 4)));\
-HAL_GPIO_WritePin(ILI9341_DB13_GPIO_PORT, ILI9341_DB13_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 5)));\
-HAL_GPIO_WritePin(ILI9341_DB14_GPIO_PORT, ILI9341_DB14_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 6)));\
-HAL_GPIO_WritePin(ILI9341_DB15_GPIO_PORT, ILI9341_DB15_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 7)));\
-} while(0)
+//#define ILI9341_8_BIT_DATA_WRITE(data)	do{ \
+//HAL_GPIO_WritePin(ILI9341_DB8_GPIO_PORT, ILI9341_DB8_GPIO_PIN, (GPIO_PinState)(data&0x01));\
+//HAL_GPIO_WritePin(ILI9341_DB9_GPIO_PORT, ILI9341_DB9_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 1)));\
+//HAL_GPIO_WritePin(ILI9341_DB10_GPIO_PORT, ILI9341_DB10_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 2)));\
+//HAL_GPIO_WritePin(ILI9341_DB11_GPIO_PORT, ILI9341_DB11_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 3)));\
+//HAL_GPIO_WritePin(ILI9341_DB12_GPIO_PORT, ILI9341_DB12_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 4)));\
+//HAL_GPIO_WritePin(ILI9341_DB13_GPIO_PORT, ILI9341_DB13_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 5)));\
+//HAL_GPIO_WritePin(ILI9341_DB14_GPIO_PORT, ILI9341_DB14_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 6)));\
+//HAL_GPIO_WritePin(ILI9341_DB15_GPIO_PORT, ILI9341_DB15_GPIO_PIN, (GPIO_PinState)(data&(0x01 << 7)));\
+//} while(0)
+
 
 #endif
 

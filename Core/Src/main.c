@@ -92,12 +92,14 @@ int main(void)
 	ILI9341_Board_Init();
 	HAL_Delay(200);
 	
-	ILI9341_APP_Init();
-	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
+//	ILI9341_APP_Init();
+//	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
 	
 	Tft_Init();
 	TftClear(ILI9341_COLOR_YELLOW);
-	HAL_Delay(200);
+	HAL_Delay(1000);
+	TftClear(ILI9341_COLOR_BLUE);
+	HAL_Delay(1000);
 	
 	
 	HAL_Delay(200);
