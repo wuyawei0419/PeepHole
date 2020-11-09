@@ -95,16 +95,19 @@ int main(void)
 //	ILI9341_APP_Init();
 //	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
 	
-	Tft_Init();
-	TftClear(ILI9341_COLOR_YELLOW);
-	HAL_Delay(1000);
-	TftClear(ILI9341_COLOR_BLUE);
-	HAL_Delay(1000);
+//	Tft_Init();
+//	TftClear(ILI9341_COLOR_YELLOW);
+//	HAL_Delay(1000);
+//	TftClear(ILI9341_COLOR_BLUE);
+//	HAL_Delay(1000);
 	
 	
 	HAL_Delay(200);
-	OV7670_Init();
+	resutl = OV7670_Init();
+	if(resutl == OV7670_False)
+		while(1);
 	HAL_Delay(1000);
+	
 	
 
 	ILI9341_DataPort_IN();

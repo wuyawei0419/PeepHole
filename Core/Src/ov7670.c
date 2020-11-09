@@ -12,7 +12,7 @@
 
 
 static void OV7670_DelayMs(uint16_t Ms);
-//static void OV7670_Delay(void);
+static void OV7670_Delay(void);
 
 static const uint8_t OV7670_REG_INIT_TABLE[][2] =
 {
@@ -380,16 +380,16 @@ void Set_Cmos7670Reg(void)
   */
 OV7670_BoolTypeDef OV7670_Init(void)
 {
-//	uint16_t i;
+	uint16_t i;
 	
 	SCCB_Init();
 	
-//	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
-//	{
-//		return OV7670_False;
-//	}
-//	
-//	OV7670_DelayMs(10);
+	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
+	{
+		return OV7670_False;
+	}
+	
+	OV7670_DelayMs(10);
 	
 //	for(i = 0; i < sizeof(OV7670_REG_INIT_TABLE)/sizeof(OV7670_REG_INIT_TABLE[0]); i++)
 //	{
@@ -419,13 +419,13 @@ OV7670_BoolTypeDef OV7670_WR_Reg(uint8_t RegAddr, uint8_t RegData)
 		SCCB_Stop();
 		return OV7670_False;
 	}
-	//OV7670_Delay();
+	OV7670_Delay();
 	if(SCCB_WR_Byte(RegAddr) == SCCB_False)
 	{
 		SCCB_Stop();
 		return OV7670_False;
 	}
-	//OV7670_Delay();
+	OV7670_Delay();
 	if(SCCB_WR_Byte(RegData) == SCCB_False)
 	{
 		SCCB_Stop();
@@ -446,6 +446,20 @@ static void OV7670_DelayMs(uint16_t Ms)
 	HAL_Delay(Ms);
 }
 
+
+/**
+  * @brief  延时
+  * @param  None
+  * @retval None
+	*	@note		IIC延时函数，实际测试约为12us
+  */
+static void OV7670_Delay(void)
+{
+	volatile uint16_t i;
+	
+	for(i=0;i<1000;i++);
+//	for(i=0;i<100;i++);	
+}
 
 ///**
 //  * @brief  延时
