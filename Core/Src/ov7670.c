@@ -384,12 +384,12 @@ OV7670_BoolTypeDef OV7670_Init(void)
 	
 	SCCB_Init();
 	
-	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
-	{
-		return OV7670_False;
-	}
-	
-	OV7670_DelayMs(10);
+//	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
+//	{
+//		return OV7670_False;
+//	}
+//	
+//	OV7670_DelayMs(10);
 	
 //	for(i = 0; i < sizeof(OV7670_REG_INIT_TABLE)/sizeof(OV7670_REG_INIT_TABLE[0]); i++)
 //	{
