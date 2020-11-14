@@ -88,13 +88,17 @@ int main(void)
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
 	PeepHole_Init();
+	
+	PeepHole_Power_Control(ENABLE);
 
 	ILI9341_Board_Init();
 	HAL_Delay(200);
 	
 //	ILI9341_APP_Init();
+//	ILI9341_ClearScreen(ILI9341_COLOR_RED);
 //	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
-	
+//	ILI9341_ClearScreen(ILI9341_COLOR_BLUE);
+//	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
 	Tft_Init();
 	TftClear(ILI9341_COLOR_YELLOW);
 	HAL_Delay(1000);

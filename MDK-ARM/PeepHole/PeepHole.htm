@@ -3,7 +3,7 @@
 <title>Static Call Graph - [PeepHole\PeepHole.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image PeepHole\PeepHole.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Nov 10 21:56:12 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Nov 12 00:26:02 2020
 <BR><P>
 <H3>Maximum Stack Usage =        200 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -251,11 +251,11 @@ Global Symbols
 
 <P><STRONG><a name="[38]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f0xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tft_Init
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Power_Control
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_VSYNC_EXTI_Callback
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_2_LCD_Control
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_LCD_WR_Control
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Board_Init
-<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Power_Control
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tft_WR_DATA16
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TftWrite16
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TftWrite
@@ -353,8 +353,8 @@ Global Symbols
 <P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f0xx_it.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f030x6.o(RESET)
 </UL>
-<P><STRONG><a name="[36]"></a>ILI9341_Board_Init</STRONG> (Thumb, 456 bytes, Stack size 48 bytes, ili9341.o(i.ILI9341_Board_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = ILI9341_Board_Init &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[36]"></a>ILI9341_Board_Init</STRONG> (Thumb, 890 bytes, Stack size 32 bytes, ili9341.o(i.ILI9341_Board_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = ILI9341_Board_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
@@ -363,7 +363,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[39]"></a>ILI9341_DataPort_IN</STRONG> (Thumb, 50 bytes, Stack size 32 bytes, ili9341.o(i.ILI9341_DataPort_IN))
+<P><STRONG><a name="[39]"></a>ILI9341_DataPort_IN</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, ili9341.o(i.ILI9341_DataPort_IN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = ILI9341_DataPort_IN &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -372,7 +372,7 @@ Global Symbols
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3a]"></a>ILI9341_DataPort_OUT</STRONG> (Thumb, 52 bytes, Stack size 32 bytes, ili9341.o(i.ILI9341_DataPort_OUT))
+<P><STRONG><a name="[3a]"></a>ILI9341_DataPort_OUT</STRONG> (Thumb, 66 bytes, Stack size 32 bytes, ili9341.o(i.ILI9341_DataPort_OUT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = ILI9341_DataPort_OUT &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -407,10 +407,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Power_Control
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_2_LCD_Control
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_LCD_WR_Control
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_EXTI_Control
-<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Power_Control
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_DisableIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -453,6 +453,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Init
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[4]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f0xx_it.o(i.PendSV_Handler))
@@ -490,7 +491,7 @@ Global Symbols
 <P><STRONG><a name="[1b]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_stm32f0xx.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f030x6.o(.text)
 </UL>
-<P><STRONG><a name="[4a]"></a>TftClear</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, ili9341.o(i.TftClear))
+<P><STRONG><a name="[4a]"></a>TftClear</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, ili9341.o(i.TftClear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TftClear &rArr; TftWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tft_WR_DATA16
@@ -500,7 +501,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[44]"></a>TftWrite</STRONG> (Thumb, 216 bytes, Stack size 32 bytes, ili9341.o(i.TftWrite))
+<P><STRONG><a name="[44]"></a>TftWrite</STRONG> (Thumb, 1056 bytes, Stack size 32 bytes, ili9341.o(i.TftWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = TftWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -510,8 +511,8 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_VSYNC_EXTI_Callback
 </UL>
 
-<P><STRONG><a name="[45]"></a>TftWrite16</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, ili9341.o(i.TftWrite16))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = TftWrite16
+<P><STRONG><a name="[45]"></a>TftWrite16</STRONG> (Thumb, 526 bytes, Stack size 16 bytes, ili9341.o(i.TftWrite16))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TftWrite16
 </UL>
 <BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
@@ -519,8 +520,8 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_VSYNC_EXTI_Callback
 </UL>
 
-<P><STRONG><a name="[4c]"></a>Tft_Init</STRONG> (Thumb, 554 bytes, Stack size 16 bytes, ili9341.o(i.Tft_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Tft_Init &rArr; TftWrite
+<P><STRONG><a name="[4c]"></a>Tft_Init</STRONG> (Thumb, 550 bytes, Stack size 8 bytes, ili9341.o(i.Tft_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Tft_Init &rArr; TftWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TftWrite
@@ -529,8 +530,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4b]"></a>Tft_WR_DATA16</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, ili9341.o(i.Tft_WR_DATA16))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Tft_WR_DATA16
+<P><STRONG><a name="[4b]"></a>Tft_WR_DATA16</STRONG> (Thumb, 526 bytes, Stack size 16 bytes, ili9341.o(i.Tft_WR_DATA16))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Tft_WR_DATA16
 </UL>
 <BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
@@ -549,11 +550,12 @@ Global Symbols
 
 <P><STRONG><a name="[5c]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 120 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq &rArr; __aeabi_uldivmod &rArr; __aeabi_llsl
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tft_Init
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TftClear
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Power_Control
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_2_LCD_Control
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_LCD_WR_Control
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Init
