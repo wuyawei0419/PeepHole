@@ -99,6 +99,7 @@ int main(void)
 //	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
 //	ILI9341_ClearScreen(ILI9341_COLOR_BLUE);
 //	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
+
 	Tft_Init();
 	TftClear(ILI9341_COLOR_YELLOW);
 	HAL_Delay(1000);
@@ -106,7 +107,7 @@ int main(void)
 	HAL_Delay(1000);
 	
 	
-	HAL_Delay(200);
+//	HAL_Delay(200);
 	resutl = OV7670_Init();
 	if(resutl == OV7670_False)
 		while(1);
@@ -120,7 +121,6 @@ int main(void)
 	PeepHole_EXTI_Control(ENABLE);
 	
 
-//	ILI9341_test(ILI9341_COLOR_YELLOW);
   /* USER CODE END 2 */
 
   /* Infinite loop */

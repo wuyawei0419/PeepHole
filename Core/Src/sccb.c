@@ -30,17 +30,35 @@ void SCCB_Init(void)
 	
 	/*初始化SCCB_SCL引脚*/
 	GPIO_Initure.Pin = SCCB_SCL_GPIO_PIN;				/*SCL pin号*/
-	GPIO_Initure.Mode = GPIO_MODE_INPUT;		/*开漏输出*/
-	GPIO_Initure.Pull = GPIO_NOPULL;						/*上拉*/
+	GPIO_Initure.Mode = GPIO_MODE_OUTPUT_OD;		/*开漏输出*/
+	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
 	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
 	HAL_GPIO_Init(SCCB_SCL_GPIO_PORT, &GPIO_Initure);
 	
 	/*初始化SCCB_SDA引脚*/
 	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
-	GPIO_Initure.Mode = GPIO_MODE_INPUT;		/*开漏输出*/
-	GPIO_Initure.Pull = GPIO_NOPULL;						/*上拉*/
+	GPIO_Initure.Mode = GPIO_MODE_OUTPUT_OD;		/*开漏输出*/
+	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
 	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
 	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);
+	
+	SCCB_SCL_GPIO_WRITE(1);
+	SCCB_SDA_GPIO_WRITE(1);
+	
+	
+//	/*初始化SCCB_SCL引脚*/
+//	GPIO_Initure.Pin = SCCB_SCL_GPIO_PIN;				/*SCL pin号*/
+//	GPIO_Initure.Mode = GPIO_MODE_INPUT;		/*开漏输出*/
+//	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
+//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
+//	HAL_GPIO_Init(SCCB_SCL_GPIO_PORT, &GPIO_Initure);
+//	
+//	/*初始化SCCB_SDA引脚*/
+//	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
+//	GPIO_Initure.Mode = GPIO_MODE_INPUT;		/*开漏输出*/
+//	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
+//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
+//	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);	
 }
 
 
@@ -54,12 +72,12 @@ void SCCB_Init(void)
 void SCCB_Start(void)
 {
 	SCCB_SDA_GPIO_WRITE(1);	/*数据线高电平*/
-	SCCB_Delay();///////////////////////////
 	SCCB_SCL_GPIO_WRITE(1);	/*在时钟线高的时候数据线由高到低*/
 	SCCB_Delay();
 	SCCB_SDA_GPIO_WRITE(0);
 	SCCB_Delay();
 	SCCB_SCL_GPIO_WRITE(0);	/*数据线恢复至低电平，单操作函数必要*/
+	SCCB_Delay();
 }
 
 
@@ -125,22 +143,14 @@ SCCB_BoolTypeDef SCCB_WR_Byte(uint8_t Data)
 		SCCB_Delay();
 		SCCB_SCL_GPIO_WRITE(1);	
 		SCCB_Delay();
-		SCCB_SCL_GPIO_WRITE(0);		   
+		SCCB_SCL_GPIO_WRITE(0);
+		SCCB_Delay();
 	}
 	SCCB_SDA_IN();	/*设置SDA为输入 */
 	SCCB_Delay();
 	SCCB_SCL_GPIO_WRITE(1);	/*接收第九位,以判断是否发送成功*/
 	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
-	SCCB_Delay();
+//	SCCB_Delay();
 	if(SCCB_SDA_GPIO_READ)
 	{
 		res = SCCB_False;
@@ -151,6 +161,7 @@ SCCB_BoolTypeDef SCCB_WR_Byte(uint8_t Data)
 	}
 	SCCB_SCL_GPIO_WRITE(0);		 
 	SCCB_SDA_OUT();	/*设置SDA为输出*/
+	SCCB_Delay();
 	return res;  
 }
 
@@ -190,7 +201,7 @@ static void SCCB_Delay(void)
 {
 	volatile uint16_t i;
 	
-	for(i=0;i<255;i++);
+	for(i=0;i<170;i++);
 //	for(i=0;i<100;i++);	
 }
 
@@ -201,7 +212,7 @@ static void SCCB_SDA_IN(void)
 	
 	SCCB_SDA_GPIO_CLK_ENABLE();
 	
-	//SCCB_SDA_GPIO_WRITE(1);
+	SCCB_SDA_GPIO_WRITE(1);
 	
 	/*初始化SCCB_SDA引脚*/
 	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
@@ -209,7 +220,9 @@ static void SCCB_SDA_IN(void)
 	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
 	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
 	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);		
-	SCCB_SDA_GPIO_WRITE(GPIO_PIN_SET);
+	
+//	SCCB_SDA_GPIO_WRITE(GPIO_PIN_SET);
+	
 //	SCCB_SDA_GPIO_PORT->MODER&=~(3<<(10*2));SCCB_SDA_GPIO_PORT->MODER|=0<<10*2;
 }
 
@@ -226,7 +239,9 @@ static void SCCB_SDA_OUT(void)
 	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
 	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
 	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);	
-	SCCB_SDA_GPIO_WRITE(GPIO_PIN_SET);
+	
+//	SCCB_SDA_GPIO_WRITE(GPIO_PIN_SET);
+	
 //	SCCB_SDA_GPIO_PORT->MODER&=~(3<<(10*2));SCCB_SDA_GPIO_PORT->MODER|=1<<10*2;
 }
 
