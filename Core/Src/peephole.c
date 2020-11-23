@@ -8,7 +8,8 @@
   */
 	
 #include "peephole.h"
-#include "ili9341.h"
+//#include "ili9341.h"
+#include "ili9486.h"
 
 
 /**
@@ -181,30 +182,30 @@ void PeepHole_OV_VSYNC_EXTI_Callback(void)
 {
 	PeepHole_EXTI_Control(DISABLE);
 	
-	ILI9341_DataPort_OUT();
+	ILI9486_DataPort_OUT();
 	
 	SN74LV125_OE_GPIO_WRITE(GPIO_PIN_SET);
 	SN74LV245_OE_GPIO_WRITE(GPIO_PIN_SET);
 	
-	TftWrite(0x0020,0x0000);
-	TftWrite(0x0021,0x013f); 
-	TftWrite(0x0050,0x00);
-	TftWrite(0x0051,239);
-	TftWrite(0x0052,0x00);
-	TftWrite(0x0053,319);
-	TftWrite(0x0003,0x1018);
-	TftWrite16(0x0022);
+//	TftWrite(0x0020,0x0000);
+//	TftWrite(0x0021,0x013f); 
+//	TftWrite(0x0050,0x00);
+//	TftWrite(0x0051,239);
+//	TftWrite(0x0052,0x00);
+//	TftWrite(0x0053,319);
+//	TftWrite(0x0003,0x1018);
+//	TftWrite16(0x0022);
 	
-//	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
+	ILI9486_Address_Set(0, 0, ILI9486_WIDTH-1, ILI9486_HEIGHT-1);
 	
-	ILI9341_RS_WRITE(GPIO_PIN_SET);
-	ILI9341_WR_WRITE(GPIO_PIN_RESET);
+	ILI9486_RS_WRITE(GPIO_PIN_SET);
+	ILI9486_WR_WRITE(GPIO_PIN_RESET);
 	
 	SN74LV125_OE_GPIO_WRITE(GPIO_PIN_RESET);
 	SN74LV245_OE_GPIO_WRITE(GPIO_PIN_RESET);
 	
 	
-	ILI9341_DataPort_IN();
+	ILI9486_DataPort_IN();
 	
 	PeepHole_EXTI_Control(ENABLE);
 }

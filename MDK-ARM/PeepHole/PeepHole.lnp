@@ -20,6 +20,7 @@
 "peephole\stm32f0xx_hal_exti.o"
 "peephole\system_stm32f0xx.o"
 "peephole\ili9341.o"
+"peephole\ili9486.o"
 "peephole\ov7670.o"
 "peephole\sccb.o"
 "peephole\peephole.o"

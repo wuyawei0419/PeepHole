@@ -508,6 +508,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Drivers/ILI9486</GroupName>
+          <Files>
+            <File>
+              <FileName>ili9486.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ili9486.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Drivers/OV7670</GroupName>
           <Files>
             <File>
