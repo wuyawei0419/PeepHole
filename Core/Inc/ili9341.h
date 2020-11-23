@@ -201,4 +201,9 @@ void Tft_SetCursor(uint16_t Xpos, uint16_t Ypos);
 void Tft_Init(void);
 
 
+
+#define VScreen 0x48 // ˙∆¡
+#define CScreen 0x68 //∫·∆¡
+void ILI9341_SetWindow(uint8_t Screen, uint16_t EW, uint16_t EH);
+
 #endif

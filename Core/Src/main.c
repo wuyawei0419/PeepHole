@@ -23,7 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "peephole.h"
-#include "ili9486.h"
+//#include "ili9486.h"
+#include "ili9341.h"
 #include "ov7670.h"
 /* USER CODE END Includes */
 
@@ -91,19 +92,19 @@ int main(void)
 	
 	PeepHole_Power_Control(ENABLE);
 
-	ILI9486_Board_Init();
+	ILI9341_Board_Init();
 	HAL_Delay(200);
 	
-	ILI9486_APP_Init();
+	ILI9341_APP_Init();
 
-	ILI9486_Address_Set(0, 0, ILI9486_WIDTH-1, ILI9486_HEIGHT-1);
+	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
 
 
 //	while(1)
 //	{
-	ILI9486_ClearScreen(ILI9486_COLOR_RED);
-	ILI9486_ClearScreen(ILI9486_COLOR_GREEN);
-	ILI9486_ClearScreen(ILI9486_COLOR_BLUE);		
+	ILI9341_ClearScreen(ILI9341_COLOR_RED);
+	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
+	ILI9341_ClearScreen(ILI9341_COLOR_BLUE);		
 	//}
 	
 //	HAL_Delay(200);
@@ -114,7 +115,7 @@ int main(void)
 	
 	
 
-	ILI9486_DataPort_IN();
+	ILI9341_DataPort_IN();
 	PeepHole_OV_2_LCD_Control(ENABLE);
 	PeepHole_LCD_WR_Control(ENABLE);	
 	PeepHole_EXTI_Control(ENABLE);

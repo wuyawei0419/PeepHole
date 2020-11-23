@@ -346,6 +346,10 @@ void ILI9341_APP_Init(void)
 	HAL_Delay(500);//此处必须要延时80ms或者更多
 	ILI9341_WR_REG(0x29); //display on	
 	HAL_Delay(1000);
+	
+	//ILI9341_SetWindow(VScreen, 320, 240);
+	ILI9341_SetWindow(CScreen, 240, 320);
+	HAL_Delay(1000);
 }
 
 
@@ -934,6 +938,25 @@ void Tft_SetCursor(uint16_t Xpos, uint16_t Ypos)
   TftWrite(0x21, Ypos);
 }
 
+
+
+
+
+void ILI9341_SetWindow(uint8_t Screen, uint16_t EW, uint16_t EH)
+{
+	ILI9341_WR_REG(0x36);
+	ILI9341_WR_ComData(Screen);
+	ILI9341_WR_REG(0x2A);
+	ILI9341_WR_ComData(0x00);
+	ILI9341_WR_ComData(0x00);
+	ILI9341_WR_ComData((EW-1)>>8);
+	ILI9341_WR_ComData(EW-1);
+	ILI9341_WR_REG(0x2B);
+	ILI9341_WR_ComData(0x00);
+	ILI9341_WR_ComData(0x00);
+	ILI9341_WR_ComData((EH-1)>>8);
+	ILI9341_WR_ComData(EH-1);
+}
 
 
 
