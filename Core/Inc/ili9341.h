@@ -191,15 +191,6 @@ void ILI9341_ClearScreen(uint16_t Color);
 void ILI9341_DataPort_IN(void);
 void ILI9341_DataPort_OUT(void);
 
-#define AM          (011)
-void Tft_WR_DATA16(uint16_t inputdata);
-void TftWrite16(uint16_t index);
-void TftWrite(uint16_t index,uint16_t inputdata);
-void TftClear(uint16_t Color);
-void Tft_SetBackground(uint16_t StartX,uint16_t StartY,uint16_t LongX,uint16_t LongY);
-void Tft_SetCursor(uint16_t Xpos, uint16_t Ypos);
-void Tft_Init(void);
-
 
 
 #define VScreen 0x48 //ÊúÆÁ

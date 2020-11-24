@@ -3,7 +3,7 @@
 <title>Static Call Graph - [PeepHole\PeepHole.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image PeepHole\PeepHole.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Nov 24 02:08:25 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Nov 24 23:48:38 2020
 <BR><P>
 <H3>Maximum Stack Usage =        200 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -386,7 +386,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_OV_VSYNC_EXTI_Callback
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_ClearScreen
-<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[3b]"></a>ILI9341_Board_Init</STRONG> (Thumb, 554 bytes, Stack size 48 bytes, ili9341.o(i.ILI9341_Board_Init))
@@ -402,8 +401,8 @@ Global Symbols
 <P><STRONG><a name="[3e]"></a>ILI9341_ClearScreen</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, ili9341.o(i.ILI9341_ClearScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = ILI9341_ClearScreen &rArr; ILI9341_Address_Set &rArr; ILI9341_WR_REG &rArr; ILI9341_Write_ComBus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
-<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_WR_Data8
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_WR_Data8
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -440,9 +439,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Write_ComBus
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
-<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_APP_Init
+<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_APP_Init
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_SetWindow
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
 </UL>
 
 <P><STRONG><a name="[3f]"></a>ILI9341_WR_Data8</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, ili9341.o(i.ILI9341_WR_Data8))
@@ -460,9 +459,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Write_ComBus
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
-<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_APP_Init
+<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_APP_Init
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_SetWindow
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
 </UL>
 
 <P><STRONG><a name="[43]"></a>ILI9341_Write_ColorBus</STRONG> (Thumb, 294 bytes, Stack size 24 bytes, ili9341.o(i.ILI9341_Write_ColorBus))
@@ -556,8 +555,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_EXTI_Control
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_DataPort_IN
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_DataPort_OUT
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
@@ -657,7 +656,7 @@ Global Symbols
 
 <P><STRONG><a name="[69]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[1a]"></a>main</STRONG> (Thumb, 106 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq &rArr; __aeabi_uldivmod &rArr; __aeabi_llsl
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PeepHole_Power_Control
@@ -669,7 +668,6 @@ Global Symbols
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_DataPort_IN
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_ClearScreen
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Board_Init
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Address_Set
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_APP_Init
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay

@@ -94,33 +94,23 @@ int main(void)
 
 	ILI9341_Board_Init();
 	HAL_Delay(200);
-	
+
 	ILI9341_APP_Init();
-
-	ILI9341_Address_Set(0, 0, ILI9341_WIDTH-1, ILI9341_HEIGHT-1);
-
-
-//	while(1)
-//	{
 	ILI9341_ClearScreen(ILI9341_COLOR_RED);
 	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
 	ILI9341_ClearScreen(ILI9341_COLOR_BLUE);		
-	//}
-	
-//	HAL_Delay(200);
+
+	HAL_Delay(200);
 	resutl = OV7670_Init();
 	if(resutl == OV7670_False)
 		while(1);
 	HAL_Delay(1000);
 	
-	
-
 	ILI9341_DataPort_IN();
 	PeepHole_OV_2_LCD_Control(ENABLE);
 	PeepHole_LCD_WR_Control(ENABLE);	
 	PeepHole_EXTI_Control(ENABLE);
 	
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
