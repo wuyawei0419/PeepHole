@@ -568,7 +568,7 @@ OV7670_BoolTypeDef OV7670_Init(void)
 	Set_Cmos7670Reg();
 	//Set_Cmos7670RegVGA();
 	
-	//OV7670_Window_Set(12,176,240,320);
+	//OV7670_Window_Set(12,176,320,480);
 	
 	return OV7670_True;
 }

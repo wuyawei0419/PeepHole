@@ -26,6 +26,8 @@
 #define ILI9486_HEIGHT	(320)
 
 
+
+
 typedef enum
 {
 	ILI9486_COLOR_WHITE		= 0xFFFF,
