@@ -233,6 +233,7 @@ typedef enum
 
 OV7670_BoolTypeDef OV7670_Init(void);
 OV7670_BoolTypeDef OV7670_WR_Reg(uint8_t RegAddr, uint8_t RegData);
-
+uint8_t OV7670_RD_Reg(uint8_t RegAddr);
+void OV7670_Window_Set(uint16_t sx,uint16_t sy,uint16_t width,uint16_t height);
 
 #endif

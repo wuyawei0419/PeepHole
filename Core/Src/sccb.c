@@ -150,7 +150,6 @@ SCCB_BoolTypeDef SCCB_WR_Byte(uint8_t Data)
 	SCCB_Delay();
 	SCCB_SCL_GPIO_WRITE(1);	/*接收第九位,以判断是否发送成功*/
 	SCCB_Delay();
-//	SCCB_Delay();
 	if(SCCB_SDA_GPIO_READ)
 	{
 		res = SCCB_False;
@@ -173,8 +172,10 @@ SCCB_BoolTypeDef SCCB_WR_Byte(uint8_t Data)
   */
 uint8_t SCCB_RD_Byte(void)
 {
-	uint8_t temp = 0, j;    
+	uint8_t temp = 0, j;
+	
 	SCCB_SDA_IN();	/*设置SDA为输入*/
+	
 	for(j=8; j>0; j--)	/*循环8次接收数据*/
 	{		     	  
 		SCCB_Delay();
@@ -186,6 +187,7 @@ uint8_t SCCB_RD_Byte(void)
 	}
 	
 	SCCB_SDA_OUT();	/*设置SDA为输出*/
+	SCCB_Delay();
 	
 	return temp;
 }
