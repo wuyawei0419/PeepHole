@@ -18,11 +18,9 @@
 
 
 #define ILI9486_USER_16_BIT_DATA_ (0)
+
 //#define ILI9486_WIDTH		(320)
 //#define ILI9486_HEIGHT	(480)
-
-
-
 
 #define ILI9486_WIDTH		(240)
 #define ILI9486_HEIGHT	(320)
