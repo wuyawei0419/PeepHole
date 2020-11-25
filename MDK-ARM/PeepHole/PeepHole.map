@@ -385,6 +385,7 @@ Section Cross References
     ili9486.o(i.ILI9486_APP_Init) refers to ili9486.o(i.ILI9486_WR_REG) for ILI9486_WR_REG
     ili9486.o(i.ILI9486_APP_Init) refers to ili9486.o(i.ILI9486_WR_ComData) for ILI9486_WR_ComData
     ili9486.o(i.ILI9486_APP_Init) refers to stm32f0xx_hal.o(i.HAL_Delay) for HAL_Delay
+    ili9486.o(i.ILI9486_APP_Init) refers to ili9486.o(i.ILI9486_SetWindow) for ILI9486_SetWindow
     ili9486.o(i.ILI9486_Address_Set) refers to ili9486.o(i.ILI9486_WR_REG) for ILI9486_WR_REG
     ili9486.o(i.ILI9486_Address_Set) refers to ili9486.o(i.ILI9486_WR_ComData) for ILI9486_WR_ComData
     ili9486.o(i.ILI9486_Board_Init) refers to stm32f0xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
@@ -394,6 +395,8 @@ Section Cross References
     ili9486.o(i.ILI9486_ClearScreen) refers to ili9486.o(i.ILI9486_WR_Data8) for ILI9486_WR_Data8
     ili9486.o(i.ILI9486_DataPort_IN) refers to stm32f0xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
     ili9486.o(i.ILI9486_DataPort_OUT) refers to stm32f0xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    ili9486.o(i.ILI9486_SetWindow) refers to ili9486.o(i.ILI9486_WR_REG) for ILI9486_WR_REG
+    ili9486.o(i.ILI9486_SetWindow) refers to ili9486.o(i.ILI9486_WR_ComData) for ILI9486_WR_ComData
     ili9486.o(i.ILI9486_WR_ComData) refers to stm32f0xx_hal_gpio.o(i.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
     ili9486.o(i.ILI9486_WR_ComData) refers to ili9486.o(i.ILI9486_Write_ComBus) for ILI9486_Write_ComBus
     ili9486.o(i.ILI9486_WR_Data) refers to stm32f0xx_hal_gpio.o(i.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
@@ -710,12 +713,13 @@ Removing Unused input sections from the image.
     Removing ili9341.o(i.ILI9341_WR_REG_DATA), (16 bytes).
     Removing ili9486.o(.rev16_text), (4 bytes).
     Removing ili9486.o(.revsh_text), (4 bytes).
-    Removing ili9486.o(i.ILI9486_APP_Init), (394 bytes).
+    Removing ili9486.o(i.ILI9486_APP_Init), (426 bytes).
     Removing ili9486.o(i.ILI9486_Address_Set), (78 bytes).
     Removing ili9486.o(i.ILI9486_Board_Init), (568 bytes).
-    Removing ili9486.o(i.ILI9486_ClearScreen), (56 bytes).
+    Removing ili9486.o(i.ILI9486_ClearScreen), (64 bytes).
     Removing ili9486.o(i.ILI9486_DataPort_IN), (56 bytes).
     Removing ili9486.o(i.ILI9486_DataPort_OUT), (56 bytes).
+    Removing ili9486.o(i.ILI9486_SetWindow), (90 bytes).
     Removing ili9486.o(i.ILI9486_WR_ComData), (28 bytes).
     Removing ili9486.o(i.ILI9486_WR_Data), (28 bytes).
     Removing ili9486.o(i.ILI9486_WR_Data8), (32 bytes).
@@ -735,7 +739,7 @@ Removing Unused input sections from the image.
     Removing peephole.o(i.PeepHole_Stop), (2 bytes).
     Removing stm32f0xx_hal_dma.o(i.__ARM_common_switch8), (26 bytes).
 
-258 unused section(s) (total 19080 bytes) removed from the image.
+259 unused section(s) (total 19210 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1045,23 +1049,23 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x000000b0   Data   RO            3    RESET               startup_stm32f030x6.o
-    0x080000b0   0x080000b0   0x00000000   Code   RO         2004  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x080000b0   0x080000b0   0x00000004   Code   RO         2015    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x080000b4   0x080000b4   0x00000004   Code   RO         2018    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x080000b8   0x080000b8   0x00000000   Code   RO         2020    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x080000b8   0x080000b8   0x00000000   Code   RO         2022    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x080000b8   0x080000b8   0x00000008   Code   RO         2023    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x080000c0   0x080000c0   0x00000000   Code   RO         2025    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x080000c0   0x080000c0   0x00000000   Code   RO         2027    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x080000c0   0x080000c0   0x00000004   Code   RO         2016    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x080000b0   0x080000b0   0x00000000   Code   RO         2010  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x080000b0   0x080000b0   0x00000004   Code   RO         2021    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x080000b4   0x080000b4   0x00000004   Code   RO         2024    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x080000b8   0x080000b8   0x00000000   Code   RO         2026    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x080000b8   0x080000b8   0x00000000   Code   RO         2028    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x080000b8   0x080000b8   0x00000008   Code   RO         2029    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x080000c0   0x080000c0   0x00000000   Code   RO         2031    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x080000c0   0x080000c0   0x00000000   Code   RO         2033    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x080000c0   0x080000c0   0x00000004   Code   RO         2022    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
     0x080000c4   0x080000c4   0x0000001c   Code   RO            4    .text               startup_stm32f030x6.o
-    0x080000e0   0x080000e0   0x0000002c   Code   RO         2007    .text               mc_p.l(uidiv.o)
-    0x0800010c   0x0800010c   0x00000060   Code   RO         2009    .text               mc_p.l(uldiv.o)
-    0x0800016c   0x0800016c   0x00000022   Code   RO         2011    .text               mc_p.l(llushr.o)
-    0x0800018e   0x0800018e   0x00000024   Code   RO         2013    .text               mc_p.l(memseta.o)
-    0x080001b2   0x080001b2   0x00000020   Code   RO         2029    .text               mc_p.l(llshl.o)
+    0x080000e0   0x080000e0   0x0000002c   Code   RO         2013    .text               mc_p.l(uidiv.o)
+    0x0800010c   0x0800010c   0x00000060   Code   RO         2015    .text               mc_p.l(uldiv.o)
+    0x0800016c   0x0800016c   0x00000022   Code   RO         2017    .text               mc_p.l(llushr.o)
+    0x0800018e   0x0800018e   0x00000024   Code   RO         2019    .text               mc_p.l(memseta.o)
+    0x080001b2   0x080001b2   0x00000020   Code   RO         2035    .text               mc_p.l(llshl.o)
     0x080001d2   0x080001d2   0x00000002   PAD
-    0x080001d4   0x080001d4   0x00000024   Code   RO         2031    .text               mc_p.l(init.o)
+    0x080001d4   0x080001d4   0x00000024   Code   RO         2037    .text               mc_p.l(init.o)
     0x080001f8   0x080001f8   0x00000094   Code   RO          146    i.EXTI4_15_IRQHandler  stm32f0xx_it.o
     0x0800028c   0x0800028c   0x00000024   Code   RO          378    i.HAL_Delay         stm32f0xx_hal.o
     0x080002b0   0x080002b0   0x00000010   Code   RO           13    i.HAL_GPIO_EXTI_Callback  main.o
@@ -1097,38 +1101,38 @@ Memory Map of the image
     0x08001098   0x08001098   0x0000012c   Code   RO         1665    i.ILI9341_Write_ColorBus  ili9341.o
     0x080011c4   0x080011c4   0x00000090   Code   RO         1666    i.ILI9341_Write_ComBus  ili9341.o
     0x08001254   0x08001254   0x00000002   Code   RO          148    i.NMI_Handler       stm32f0xx_it.o
-    0x08001256   0x08001256   0x00000020   Code   RO         1842    i.OV7670_Delay      ov7670.o
-    0x08001276   0x08001276   0x00000028   Code   RO         1843    i.OV7670_Init       ov7670.o
-    0x0800129e   0x0800129e   0x00000040   Code   RO         1844    i.OV7670_WR_Reg     ov7670.o
-    0x080012de   0x080012de   0x00000016   Code   RO         1947    i.PeepHole_EXTI_Control  peephole.o
-    0x080012f4   0x080012f4   0x000000c0   Code   RO         1948    i.PeepHole_Init     peephole.o
-    0x080013b4   0x080013b4   0x00000020   Code   RO         1949    i.PeepHole_LCD_WR_Control  peephole.o
-    0x080013d4   0x080013d4   0x00000020   Code   RO         1950    i.PeepHole_OV_2_LCD_Control  peephole.o
-    0x080013f4   0x080013f4   0x00000068   Code   RO         1951    i.PeepHole_OV_VSYNC_EXTI_Callback  peephole.o
-    0x0800145c   0x0800145c   0x00000020   Code   RO         1952    i.PeepHole_Power_Control  peephole.o
+    0x08001256   0x08001256   0x00000020   Code   RO         1848    i.OV7670_Delay      ov7670.o
+    0x08001276   0x08001276   0x00000028   Code   RO         1849    i.OV7670_Init       ov7670.o
+    0x0800129e   0x0800129e   0x00000040   Code   RO         1850    i.OV7670_WR_Reg     ov7670.o
+    0x080012de   0x080012de   0x00000016   Code   RO         1953    i.PeepHole_EXTI_Control  peephole.o
+    0x080012f4   0x080012f4   0x000000c0   Code   RO         1954    i.PeepHole_Init     peephole.o
+    0x080013b4   0x080013b4   0x00000020   Code   RO         1955    i.PeepHole_LCD_WR_Control  peephole.o
+    0x080013d4   0x080013d4   0x00000020   Code   RO         1956    i.PeepHole_OV_2_LCD_Control  peephole.o
+    0x080013f4   0x080013f4   0x00000068   Code   RO         1957    i.PeepHole_OV_VSYNC_EXTI_Callback  peephole.o
+    0x0800145c   0x0800145c   0x00000020   Code   RO         1958    i.PeepHole_Power_Control  peephole.o
     0x0800147c   0x0800147c   0x00000002   Code   RO          149    i.PendSV_Handler    stm32f0xx_it.o
-    0x0800147e   0x0800147e   0x00000016   Code   RO         1882    i.SCCB_Delay        sccb.o
-    0x08001494   0x08001494   0x00000068   Code   RO         1883    i.SCCB_Init         sccb.o
-    0x080014fc   0x080014fc   0x00000044   Code   RO         1886    i.SCCB_SDA_IN       sccb.o
-    0x08001540   0x08001540   0x00000038   Code   RO         1887    i.SCCB_SDA_OUT      sccb.o
-    0x08001578   0x08001578   0x00000040   Code   RO         1888    i.SCCB_Start        sccb.o
-    0x080015b8   0x080015b8   0x00000036   Code   RO         1889    i.SCCB_Stop         sccb.o
-    0x080015ee   0x080015ee   0x0000008e   Code   RO         1890    i.SCCB_WR_Byte      sccb.o
+    0x0800147e   0x0800147e   0x00000016   Code   RO         1888    i.SCCB_Delay        sccb.o
+    0x08001494   0x08001494   0x00000068   Code   RO         1889    i.SCCB_Init         sccb.o
+    0x080014fc   0x080014fc   0x00000044   Code   RO         1892    i.SCCB_SDA_IN       sccb.o
+    0x08001540   0x08001540   0x00000038   Code   RO         1893    i.SCCB_SDA_OUT      sccb.o
+    0x08001578   0x08001578   0x00000040   Code   RO         1894    i.SCCB_Start        sccb.o
+    0x080015b8   0x080015b8   0x00000036   Code   RO         1895    i.SCCB_Stop         sccb.o
+    0x080015ee   0x080015ee   0x0000008e   Code   RO         1896    i.SCCB_WR_Byte      sccb.o
     0x0800167c   0x0800167c   0x00000002   Code   RO          150    i.SVC_Handler       stm32f0xx_it.o
-    0x0800167e   0x0800167e   0x00000464   Code   RO         1845    i.Set_Cmos7670Reg   ov7670.o
+    0x0800167e   0x0800167e   0x00000464   Code   RO         1851    i.Set_Cmos7670Reg   ov7670.o
     0x08001ae2   0x08001ae2   0x00000008   Code   RO          151    i.SysTick_Handler   stm32f0xx_it.o
     0x08001aea   0x08001aea   0x0000004a   Code   RO           14    i.SystemClock_Config  main.o
     0x08001b34   0x08001b34   0x00000002   Code   RO         1620    i.SystemInit        system_stm32f0xx.o
     0x08001b36   0x08001b36   0x00000030   Code   RO          333    i.__ARM_common_ll_muluu  stm32f0xx_hal_rcc.o
     0x08001b66   0x08001b66   0x00000002   PAD
     0x08001b68   0x08001b68   0x00000044   Code   RO         1199    i.__NVIC_SetPriority  stm32f0xx_hal_cortex.o
-    0x08001bac   0x08001bac   0x0000000e   Code   RO         2035    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x08001bba   0x08001bba   0x00000002   Code   RO         2036    i.__scatterload_null  mc_p.l(handlers.o)
-    0x08001bbc   0x08001bbc   0x0000000e   Code   RO         2037    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x08001bac   0x08001bac   0x0000000e   Code   RO         2041    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x08001bba   0x08001bba   0x00000002   Code   RO         2042    i.__scatterload_null  mc_p.l(handlers.o)
+    0x08001bbc   0x08001bbc   0x0000000e   Code   RO         2043    i.__scatterload_zeroinit  mc_p.l(handlers.o)
     0x08001bca   0x08001bca   0x00000002   PAD
     0x08001bcc   0x08001bcc   0x00000070   Code   RO           15    i.main              main.o
     0x08001c3c   0x08001c3c   0x00000010   Data   RO         1621    .constdata          system_stm32f0xx.o
-    0x08001c4c   0x08001c4c   0x00000020   Data   RO         2033    Region$$Table       anon$$obj.o
+    0x08001c4c   0x08001c4c   0x00000020   Data   RO         2039    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001c6c, Size: 0x00000418, Max: 0x00001000, ABSOLUTE)

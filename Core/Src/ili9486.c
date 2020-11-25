@@ -301,8 +301,11 @@ ILI9486_WR_ComData(0x24);
 ILI9486_WR_ComData(0x20);
 ILI9486_WR_ComData(0x00);
 ILI9486_WR_REG(0x11);
-HAL_Delay(200);
+HAL_Delay(500);
 ILI9486_WR_REG(0x29);
+HAL_Delay(1000);
+ILI9486_SetWindow(CScreen_, ILI9486_WIDTH, ILI9486_HEIGHT);
+HAL_Delay(1000);
 
 }
 
@@ -444,7 +447,7 @@ void ILI9486_ClearScreen(uint16_t Color)
 	
 	v_h = Color >> 8;
 	v_l = Color;
-	ILI9486_Address_Set(0, 0, ILI9486_WIDTH-1, ILI9486_HEIGHT-1);
+	ILI9486_Address_Set(0, 0, ILI9486_HEIGHT-1, ILI9486_WIDTH-1);
 	for(i = 0; i < ILI9486_WIDTH; i++)
 	{
 		for(j = 0; j < ILI9486_HEIGHT; j++)
@@ -453,4 +456,32 @@ void ILI9486_ClearScreen(uint16_t Color)
 		}
 	}
 }
+
+
+
+
+
+
+/**
+  * @brief  设置窗口
+	*	@param	Color：填充的颜色
+  * @retval None
+  */
+void ILI9486_SetWindow(uint8_t Screen, uint16_t EW, uint16_t EH)
+{
+	ILI9486_WR_REG(0x36);
+	ILI9486_WR_ComData(Screen);
+	ILI9486_WR_REG(0x2A);
+	ILI9486_WR_ComData(0x00);
+	ILI9486_WR_ComData(0x00);
+	ILI9486_WR_ComData((EW-1)>>8);
+	ILI9486_WR_ComData(EW-1);
+	ILI9486_WR_REG(0x2B);
+	ILI9486_WR_ComData(0x00);
+	ILI9486_WR_ComData(0x00);
+	ILI9486_WR_ComData((EH-1)>>8);
+	ILI9486_WR_ComData(EH-1);
+}
+
+
 

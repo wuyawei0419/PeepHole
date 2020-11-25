@@ -18,8 +18,8 @@
 
 
 #define ILI9486_USER_16_BIT_DATA_ (0)
-#define ILI9486_WIDTH		(240)
-#define ILI9486_HEIGHT	(320)
+#define ILI9486_WIDTH		(320)
+#define ILI9486_HEIGHT	(480)
 
 
 typedef enum
@@ -188,6 +188,8 @@ void ILI9486_Address_Set(uint16_t X1, uint16_t Y1, uint16_t X2, uint16_t Y2);
 void ILI9486_ClearScreen(uint16_t Color);
 void ILI9486_DataPort_IN(void);
 void ILI9486_DataPort_OUT(void);
-
+#define VScreen_ 0x48 // ˙∆¡
+#define CScreen_ 0x68 //∫·∆¡
+void ILI9486_SetWindow(uint8_t Screen, uint16_t EW, uint16_t EH);
 
 #endif
