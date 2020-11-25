@@ -347,7 +347,6 @@ void ILI9341_APP_Init(void)
 	ILI9341_WR_REG(0x29); //display on	
 	HAL_Delay(1000);
 	
-	//ILI9341_SetWindow(VScreen, 320, 240);
 	ILI9341_SetWindow(CScreen, 240, 320);
 	HAL_Delay(1000);
 }
