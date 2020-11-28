@@ -546,30 +546,17 @@ void Set_Cmos7670Reg(void)
   */
 OV7670_BoolTypeDef OV7670_Init(void)
 {
-//	uint16_t i;
-	
 	SCCB_Init();
-	
-	HAL_Delay(1000);
-	
+
 	if(OV7670_WR_Reg(0x12, 0x80) == OV7670_False)
 	{
 		return OV7670_False;
 	}
-//	
+
 	OV7670_DelayMs(10);
-	
-//	for(i = 0; i < sizeof(OV7670_REG_INIT_TABLE)/sizeof(OV7670_REG_INIT_TABLE[0]); i++)
-//	{
-//		if(OV7670_WR_Reg(OV7670_REG_INIT_TABLE[i][0], OV7670_REG_INIT_TABLE[i][1]) == OV7670_False)
-//			return OV7670_False;
-//	}
-	
+
 	Set_Cmos7670Reg();
-	//Set_Cmos7670RegVGA();
-	
-	//OV7670_Window_Set(12,176,320,480);
-	
+
 	return OV7670_True;
 }
 

@@ -44,21 +44,6 @@ void SCCB_Init(void)
 	
 	SCCB_SCL_GPIO_WRITE(1);
 	SCCB_SDA_GPIO_WRITE(1);
-	
-	
-//	/*初始化SCCB_SCL引脚*/
-//	GPIO_Initure.Pin = SCCB_SCL_GPIO_PIN;				/*SCL pin号*/
-//	GPIO_Initure.Mode = GPIO_MODE_INPUT;		/*开漏输出*/
-//	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
-//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
-//	HAL_GPIO_Init(SCCB_SCL_GPIO_PORT, &GPIO_Initure);
-//	
-//	/*初始化SCCB_SDA引脚*/
-//	GPIO_Initure.Pin = SCCB_SDA_GPIO_PIN;				/*SDA pin号*/
-//	GPIO_Initure.Mode = GPIO_MODE_INPUT;		/*开漏输出*/
-//	GPIO_Initure.Pull = GPIO_PULLUP;						/*上拉*/
-//	GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;	/*高速*/
-//	HAL_GPIO_Init(SCCB_SDA_GPIO_PORT, &GPIO_Initure);	
 }
 
 

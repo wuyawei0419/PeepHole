@@ -56,7 +56,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-OV7670_BoolTypeDef resutl = OV7670_False;
+
 /* USER CODE END 0 */
 
 /**
@@ -92,23 +92,16 @@ int main(void)
 	PeepHole_Power_Control(ENABLE);
 
 	ILI9341_Board_Init();
-
 	ILI9341_APP_Init();
-	ILI9341_ClearScreen(ILI9341_COLOR_RED);
-	ILI9341_ClearScreen(ILI9341_COLOR_GREEN);
-	ILI9341_ClearScreen(ILI9341_COLOR_BLUE);		
-
-	HAL_Delay(200);
-	resutl = OV7670_Init();
-	if(resutl == OV7670_False)
-		while(1);
-	HAL_Delay(1000);
-	
+	ILI9341_ClearScreen(ILI9341_COLOR_WHITE);		
 	ILI9341_DataPort_IN();
+	
+	OV7670_Init();
+
 	PeepHole_OV_2_LCD_Control(ENABLE);
 	PeepHole_LCD_WR_Control(ENABLE);	
 	PeepHole_EXTI_Control(ENABLE);
-	
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

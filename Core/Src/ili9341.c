@@ -568,9 +568,6 @@ void ILI9341_APP_Init(void)
 	HAL_Delay(100);//此处必须要延时80ms或者更多
 	
 	ILI9341_WR_REG(0x29); //display on	
-	
-	HAL_Delay(1000);
-	HAL_Delay(1000);
 }
 
 
