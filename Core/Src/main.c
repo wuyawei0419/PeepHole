@@ -92,7 +92,6 @@ int main(void)
 	PeepHole_Power_Control(ENABLE);
 
 	ILI9341_Board_Init();
-	HAL_Delay(200);
 
 	ILI9341_APP_Init();
 	ILI9341_ClearScreen(ILI9341_COLOR_RED);
@@ -115,7 +114,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {			
+  {
+  	PeepHole_Task();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

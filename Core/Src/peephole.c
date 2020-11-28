@@ -12,6 +12,9 @@
 //#include "ili9486.h"
 
 
+/*帧中断标志位，摄像头每帧图像数据来临前此变量置位*/
+static volatile FlagStatus FRAME_INTERRUPT_FLAG = RESET;
+
 /**
   * @brief  初始化PeepHole GPIO
   * @param  None
@@ -180,24 +183,68 @@ void PeepHole_EXTI_Control(FunctionalState State)
   */
 void PeepHole_OV_VSYNC_EXTI_Callback(void)
 {
-	PeepHole_EXTI_Control(DISABLE);
-	
-	ILI9341_DataPort_OUT();
-	
-	SN74LV125_OE_GPIO_WRITE(GPIO_PIN_SET);
-	SN74LV245_OE_GPIO_WRITE(GPIO_PIN_SET);
-	
-	ILI9341_Address_Set(0, 0, ILI9341_HEIGHT-1, ILI9341_WIDTH-1);
-	
-	ILI9341_RS_WRITE(GPIO_PIN_SET);
-	ILI9341_WR_WRITE(GPIO_PIN_RESET);
-	
-	SN74LV125_OE_GPIO_WRITE(GPIO_PIN_RESET);
-	SN74LV245_OE_GPIO_WRITE(GPIO_PIN_RESET);
-	
-	ILI9341_DataPort_IN();
-	
-	PeepHole_EXTI_Control(ENABLE);
+	FRAME_INTERRUPT_FLAG = SET;
 }
 
+
+/**
+  * @brief  获取帧中断标志是否置位
+  * @param  None
+  * @retval 是否置位
+  *		#RESET:未置位
+  *		#SET:置位
+  */
+FlagStatus PeepHole_Get_FrameIntFlag(void)
+{
+	static FlagStatus temp = RESET;
+
+	temp = FRAME_INTERRUPT_FLAG;
+
+	return temp;
+}
+
+
+
+/**
+  * @brief  复位帧中断标志位
+  * @param  None
+  * @retval None
+  */
+void PeepHole_Reset_FrameIntFlag(void)
+{
+	FRAME_INTERRUPT_FLAG = RESET;
+}
+
+
+/**
+  * @brief  猫眼应用主任务，循环调用
+  * @param  None
+  * @retval None
+  */
+void PeepHole_Task(void)
+{
+	if(PeepHole_Get_FrameIntFlag() == SET)
+	{
+		PeepHole_EXTI_Control(DISABLE);
+		
+		ILI9341_DataPort_OUT();
+		
+		PeepHole_LCD_WR_Control(DISABLE);
+		PeepHole_OV_2_LCD_Control(DISABLE);
+		
+		ILI9341_Address_Set(0, 0, ILI9341_HEIGHT-1, ILI9341_WIDTH-1);
+		
+		ILI9341_RS_WRITE(GPIO_PIN_SET);
+		ILI9341_WR_WRITE(GPIO_PIN_RESET);
+		
+		PeepHole_LCD_WR_Control(ENABLE);
+		PeepHole_OV_2_LCD_Control(ENABLE);
+		
+		ILI9341_DataPort_IN();
+		
+		PeepHole_EXTI_Control(ENABLE);	
+
+		PeepHole_Reset_FrameIntFlag();
+	}
+}
 

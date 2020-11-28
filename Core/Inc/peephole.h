@@ -93,5 +93,10 @@ void PeepHole_OV_2_LCD_Control(FunctionalState State);
 void PeepHole_Power_Control(FunctionalState State);
 void PeepHole_EXTI_Control(FunctionalState State);
 void PeepHole_OV_VSYNC_EXTI_Callback(void);
+FlagStatus PeepHole_Get_FrameIntFlag(void);
+void PeepHole_Reset_FrameIntFlag(void);
+void PeepHole_Task(void);
+
 
 #endif
+
