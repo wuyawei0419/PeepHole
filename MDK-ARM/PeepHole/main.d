@@ -30,3 +30,4 @@ peephole\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h
 peephole\main.o: ../Core/Inc/peephole.h
 peephole\main.o: ../Core/Inc/ili9341.h
 peephole\main.o: ../Core/Inc/ov7670.h
+peephole\main.o: ../Core/Inc/button.h

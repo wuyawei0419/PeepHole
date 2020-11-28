@@ -24,6 +24,7 @@
 "peephole\ov7670.o"
 "peephole\sccb.o"
 "peephole\peephole.o"
+"peephole\button.o"
 --library_type=microlib --strict --scatter "PeepHole\PeepHole.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

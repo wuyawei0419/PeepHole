@@ -1,6 +1,6 @@
 Dependencies for Project 'PeepHole', Target 'PeepHole': (DO NOT MODIFY !)
 F (startup_stm32f030x6.s)(0x5FA01211)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "STM32F030x6 SETA 1"--list startup_stm32f030x6.lst --xref -o peephole\startup_stm32f030x6.o --depend peephole\startup_stm32f030x6.d)
-F (../Core/Src/main.c)(0x5FC288E1)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\main.o --omf_browse peephole\main.crf --depend peephole\main.d)
+F (../Core/Src/main.c)(0x5FC2AC61)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\main.o --omf_browse peephole\main.crf --depend peephole\main.d)
 I (../Core/Inc/main.h)(0x5FA0120D)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5F578B20)
 I (../Core/Inc/stm32f0xx_hal_conf.h)(0x5FA0120D)
@@ -31,7 +31,8 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5F578B20)
 I (../Core/Inc/peephole.h)(0x5FC28D2B)
 I (../Core/Inc/ili9341.h)(0x5FC28730)
 I (../Core/Inc/ov7670.h)(0x5FBE7557)
-F (../Core/Src/stm32f0xx_it.c)(0x5FA413DF)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\stm32f0xx_it.o --omf_browse peephole\stm32f0xx_it.crf --depend peephole\stm32f0xx_it.d)
+I (../Core/Inc/button.h)(0x5FC2A9EF)
+F (../Core/Src/stm32f0xx_it.c)(0x5FC2AC2B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\stm32f0xx_it.o --omf_browse peephole\stm32f0xx_it.crf --depend peephole\stm32f0xx_it.d)
 I (../Core/Inc/main.h)(0x5FA0120D)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5F578B20)
 I (../Core/Inc/stm32f0xx_hal_conf.h)(0x5FA0120D)
@@ -60,6 +61,7 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5F578B20)
 I (../Core/Inc/stm32f0xx_it.h)(0x5FA0120C)
+I (../Core/Inc/button.h)(0x5FC2A9EF)
 F (../Core/Src/stm32f0xx_hal_msp.c)(0x5FA0120C)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\stm32f0xx_hal_msp.o --omf_browse peephole\stm32f0xx_hal_msp.crf --depend peephole\stm32f0xx_hal_msp.d)
 I (../Core/Inc/main.h)(0x5FA0120D)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5F578B20)
@@ -633,7 +635,7 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5F578B20)
-F (..\Core\Src\peephole.c)(0x5FC27E8C)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\peephole.o --omf_browse peephole\peephole.crf --depend peephole\peephole.d)
+F (..\Core\Src\peephole.c)(0x5FC2AFF7)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\peephole.o --omf_browse peephole\peephole.crf --depend peephole\peephole.d)
 I (../Core/Inc/peephole.h)(0x5FC28D2B)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5F578B20)
 I (../Core/Inc/stm32f0xx_hal_conf.h)(0x5FA0120D)
@@ -662,3 +664,34 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5F578B20)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5F578B20)
 I (../Core/Inc/ili9341.h)(0x5FC28730)
+F (..\Core\Src\button.c)(0x5FC2B330)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_PeepHole-IE:\MDK5-ARM\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\MDK5-ARM\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F030x6 -DUSE_HAL_DRIVER -DSTM32F030x6-o peephole\button.o --omf_browse peephole\button.crf --depend peephole\button.d)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5F578B20)
+I (../Core/Inc/stm32f0xx_hal_conf.h)(0x5FA0120D)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x5F578B20)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5F578AEA)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x5F578AEA)
+I (../Drivers/CMSIS/Include/core_cm0.h)(0x5F578AFF)
+I (E:\MDK5-ARM\ARM\ARMCC\include\stdint.h)(0x588B8344)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x5F578AFF)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5F578AFF)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5F578AFF)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x5F578AEA)
+I (E:\MDK5-ARM\ARM\ARMCC\include\stddef.h)(0x588B8344)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_exti.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5F578B20)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5F578B20)
+I (../Core/Inc/button.h)(0x5FC2A9EF)
+I (../Core/Inc/peephole.h)(0x5FC28D2B)
+I (../Core/Inc/ili9341.h)(0x5FC28730)
+I (../Core/Inc/ov7670.h)(0x5FBE7557)

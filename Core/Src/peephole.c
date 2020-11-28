@@ -54,7 +54,7 @@ void PeepHole_Init(void)
 	HAL_GPIO_Init(OV_VSYNC_GPIO_PORT, &GPIO_Initure);
 	
   HAL_NVIC_SetPriority(OV_VSYNC_GPIO_IRQn, 2, 0);
-  HAL_NVIC_DisableIRQ(OV_VSYNC_GPIO_IRQn);
+  HAL_NVIC_EnableIRQ(OV_VSYNC_GPIO_IRQn);
 
 	PeepHole_EXTI_Control(DISABLE);
 	PeepHole_OV_2_LCD_Control(DISABLE);
@@ -165,14 +165,18 @@ void PeepHole_Power_Control(FunctionalState State)
   */
 void PeepHole_EXTI_Control(FunctionalState State)
 {
+	static GPIO_InitTypeDef GPIO_Initure = {.Pull = GPIO_PULLUP, .Speed = GPIO_SPEED_FREQ_HIGH, .Pin = OV_VSYNC_GPIO_PIN};
+	
 	if(State == DISABLE)
 	{
-		HAL_NVIC_DisableIRQ(OV_VSYNC_GPIO_IRQn);
+		GPIO_Initure.Mode = GPIO_MODE_INPUT;				/*输入*/
 	}
 	else
 	{
-		HAL_NVIC_EnableIRQ(OV_VSYNC_GPIO_IRQn);
+		GPIO_Initure.Mode = GPIO_MODE_IT_FALLING;		/*外部中断*/
 	}
+
+	HAL_GPIO_Init(OV_VSYNC_GPIO_PORT, &GPIO_Initure);		
 }
 
 

@@ -26,6 +26,7 @@
 //#include "ili9486.h"
 #include "ili9341.h"
 #include "ov7670.h"
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -102,6 +103,8 @@ int main(void)
 	PeepHole_LCD_WR_Control(ENABLE);	
 	PeepHole_EXTI_Control(ENABLE);
 
+	Button_Init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -109,6 +112,7 @@ int main(void)
   while (1)
   {
   	PeepHole_Task();
+  	Button_Task();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -166,6 +170,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	if(GPIO_Pin == OV_VSYNC_GPIO_PIN)
 	{
 		PeepHole_OV_VSYNC_EXTI_Callback();
+	}
+	else if(GPIO_Pin == BUTTON_USER_GPIO_PIN)
+	{
+		Button_EXTI_Callback(BUTTON_USER_GPIO_PIN);
+	}
+	else if(GPIO_Pin == BUTTON_MCU_GPIO_PIN)
+	{
+		Button_EXTI_Callback(BUTTON_MCU_GPIO_PIN);
 	}
 }
 
