@@ -13,7 +13,7 @@
 
 #include "stm32f0xx_hal.h"
 #include "button.h"
-
+#include "main.h"
 
 
 #include "peephole.h"
@@ -217,7 +217,7 @@ ButtonStatus_TypeDef Button_GetStatus(void)
 	return temp;	
 }
 
-
+void SystemClock_Config(void);
 /**
   * @brief  应用层主函数，循环调用
   * @param  None
@@ -251,6 +251,9 @@ void Button_Task(void)
 		PeepHole_OV_2_LCD_Control(DISABLE);
 		PeepHole_LCD_WR_Control(DISABLE);	
 		PeepHole_EXTI_Control(DISABLE);		
+
+		System_Sleep();
+
 	}
 }
 
