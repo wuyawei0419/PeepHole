@@ -34,7 +34,7 @@
 /*结束扫描时，当计数值不超过这个时则为短按，单位为BUTTON_TICK_PERIOD_VALUE*/
 #define BUTTON_PRESS_MAX_VALUE		(25u)
 /*结束扫描时，当计数值超过这个时则为长按，单位为BUTTON_TICK_PERIOD_VALUE*/
-#define BUTTON_PRESS_HOLD_MIN_VALUE		(100u)
+#define BUTTON_PRESS_HOLD_MIN_VALUE		(50u)
 
 
 

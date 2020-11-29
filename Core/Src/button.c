@@ -201,7 +201,7 @@ void Button_Scan_CallBack(void)
   */
 ButtonStatus_TypeDef Button_GetStatus(void)
 {
-	static ButtonStatus_TypeDef temp = Button_Null;
+	ButtonStatus_TypeDef temp = Button_Null;
 	
 	if(Button_User.Status != Button_Null)
 	{
@@ -225,24 +225,24 @@ ButtonStatus_TypeDef Button_GetStatus(void)
   */
 void Button_Task(void)
 {
-	static ButtonStatus_TypeDef button_status = Button_Null;
+	ButtonStatus_TypeDef button_status = Button_Null;
 
 	button_status = Button_GetStatus();
 	if(button_status == Button_Press)
 	{
-//		PeepHole_Power_Control(ENABLE);
+		PeepHole_Init();
+		PeepHole_Power_Control(ENABLE);
 
-//		ILI9341_Board_Init();
-//		ILI9341_APP_Init();
-//		ILI9341_ClearScreen(ILI9341_COLOR_WHITE);		
-//		ILI9341_DataPort_IN();
-//		
-//		OV7670_Init();
+		ILI9341_Board_Init();
+		ILI9341_APP_Init();
+		ILI9341_ClearScreen(ILI9341_COLOR_WHITE);		
+		ILI9341_DataPort_IN();
+		
+		OV7670_Init();
 
-//		PeepHole_OV_2_LCD_Control(ENABLE);
-//		PeepHole_LCD_WR_Control(ENABLE);	
-//		PeepHole_EXTI_Control(ENABLE);		
-		NVIC_SystemReset();
+		PeepHole_OV_2_LCD_Control(ENABLE);
+		PeepHole_LCD_WR_Control(ENABLE);	
+		PeepHole_EXTI_Control(ENABLE);		
 	}
 	else if(button_status == Button_Press_Hold)
 	{
