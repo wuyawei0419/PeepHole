@@ -252,7 +252,7 @@ void Button_Task(void)
 		PeepHole_LCD_WR_Control(DISABLE);	
 		PeepHole_EXTI_Control(DISABLE);		
 
-		System_Sleep();
+		//System_Sleep();
 
 	}
 }
