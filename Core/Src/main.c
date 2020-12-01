@@ -88,23 +88,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
-	PeepHole_Init();
-	
-	PeepHole_Power_Control(ENABLE);
-
-	ILI9341_Board_Init();
-	ILI9341_APP_Init();
-	ILI9341_ClearScreen(ILI9341_COLOR_WHITE);		
-	ILI9341_DataPort_IN();
-	
-	OV7670_Init();
-
-	PeepHole_OV_2_LCD_Control(ENABLE);
-	PeepHole_LCD_WR_Control(ENABLE);	
-	PeepHole_EXTI_Control(ENABLE);
-
+  PeepHole_Run();
 	Button_Init();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -180,6 +165,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		Button_EXTI_Callback(BUTTON_MCU_GPIO_PIN);
 	}
 }
+
+
+
+
 
 
 

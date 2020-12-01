@@ -85,11 +85,11 @@ OV摄像头的帧同步信号
 #define POWER_GPIO_WRITE(state)		(state == 0)?(POWER_GPIO_PORT->BRR = (uint32_t)POWER_GPIO_PIN):(POWER_GPIO_PORT->BSRR = (uint32_t)POWER_GPIO_PIN);
 
 
+/*进入低功耗模式的等待时间，单位ms*/
+#define PEEPHOLE_SLEEP_ENTER_TIMEOUT (10000U)
 
 
 void PeepHole_Init(void);
-void PeepHole_Run(void);
-void PeepHole_Stop(void);
 void PeepHole_LCD_WR_Control(FunctionalState State);
 void PeepHole_OV_2_LCD_Control(FunctionalState State);
 void PeepHole_Power_Control(FunctionalState State);
@@ -97,6 +97,14 @@ void PeepHole_EXTI_Control(FunctionalState State);
 void PeepHole_OV_VSYNC_EXTI_Callback(void);
 FlagStatus PeepHole_Get_FrameIntFlag(void);
 void PeepHole_Reset_FrameIntFlag(void);
+void PeepHole_Sleep(void);
+void PeepHole_Run(void);
+void PeepHole_SleepCounter_Clear(void);
+void PeepHole_SleepCounter_Reload(void);
+void PeepHole_Enable_Sleep(void);
+void PeepHole_Enable_Run(void);
+FlagStatus PeepHole_Get_RunFlag(void);
+void PeepHole_Tick_Callback(void);
 void PeepHole_Task(void);
 
 

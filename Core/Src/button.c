@@ -230,30 +230,23 @@ void Button_Task(void)
 	button_status = Button_GetStatus();
 	if(button_status == Button_Press)
 	{
-		PeepHole_Init();
-		PeepHole_Power_Control(ENABLE);
-
-		ILI9341_Board_Init();
-		ILI9341_APP_Init();
-		ILI9341_ClearScreen(ILI9341_COLOR_WHITE);		
-		ILI9341_DataPort_IN();
-		
-		OV7670_Init();
-
-		PeepHole_OV_2_LCD_Control(ENABLE);
-		PeepHole_LCD_WR_Control(ENABLE);	
-		PeepHole_EXTI_Control(ENABLE);		
+		/*短按，如果此时没打开猫眼，则打开猫眼，如果没打开，则刷新超时时间*/
+		if(PeepHole_Get_RunFlag() == SET)
+		{
+			/*已打开猫眼，刷新超时时间即可*/
+			PeepHole_SleepCounter_Reload();
+		}
+		else
+		{
+			/*没打开猫眼，开启*/
+			PeepHole_Enable_Run();
+		}		
 	}
 	else if(button_status == Button_Press_Hold)
 	{
-		PeepHole_Power_Control(DISABLE);
-
-		PeepHole_OV_2_LCD_Control(DISABLE);
-		PeepHole_LCD_WR_Control(DISABLE);	
-		PeepHole_EXTI_Control(DISABLE);		
-
+		/*长按，系统进入睡眠*/
+		PeepHole_Enable_Sleep();
 		//System_Sleep();
-
 	}
 }
 

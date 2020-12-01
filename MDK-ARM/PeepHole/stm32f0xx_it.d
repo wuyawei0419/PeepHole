@@ -29,3 +29,4 @@ peephole\stm32f0xx_it.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h
 peephole\stm32f0xx_it.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h
 peephole\stm32f0xx_it.o: ../Core/Inc/stm32f0xx_it.h
 peephole\stm32f0xx_it.o: ../Core/Inc/button.h
+peephole\stm32f0xx_it.o: ../Core/Inc/peephole.h

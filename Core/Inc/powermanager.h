@@ -16,8 +16,7 @@
 
 
 
-/*进入低功耗模式的等待时间，单位ms*/
-#define POWERMANAGER_ENTER_TIMEOUT (10000U)
+
 
 
 
