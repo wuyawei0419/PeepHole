@@ -27,6 +27,7 @@
 #include "ili9341.h"
 #include "ov7670.h"
 #include "button.h"
+#include "sccb.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,8 +89,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
-  PeepHole_Run();
+	PeepHole_Init();
+	ILI9341_Board_Init();
+	SCCB_Init();
 	Button_Init();
+	PeepHole_Sleep();
   /* USER CODE END 2 */
 
   /* Infinite loop */

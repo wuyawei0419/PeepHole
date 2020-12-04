@@ -31,3 +31,4 @@ peephole\main.o: ../Core/Inc/peephole.h
 peephole\main.o: ../Core/Inc/ili9341.h
 peephole\main.o: ../Core/Inc/ov7670.h
 peephole\main.o: ../Core/Inc/button.h
+peephole\main.o: ../Core/Inc/sccb.h
